@@ -1,5 +1,9 @@
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Hello Worldd!");
+        People P1 = new People();
+        P1.setName("Hai");
+        P1.setTuoi(0);
+        System.out.println(P1.Name());
+        System.out.println(P1.Tuoi());
     }
 }
