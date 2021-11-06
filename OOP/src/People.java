@@ -1,5 +1,5 @@
 public class People {
-    private int tuoi;
+    private int _tuoi;
     private String name;
     public void setName(String N) {
         this.name = N;
@@ -8,9 +8,9 @@ public class People {
         return this.name;
     }
     public void setTuoi(int T) {
-        this.tuoi = T;
+        this._tuoi = T;
     }
     public int Tuoi() {
-        return this.tuoi;
+        return this._tuoi;
     }
 }
