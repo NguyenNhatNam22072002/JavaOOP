@@ -8,10 +8,6 @@ public class People {
         return this.name;
     }
     public void setTuoi(int T) {
-        if(T<=0) {
-            System.out.println("Tuoi must be greater than 0");
-            return;
-        }
         this.tuoi = T;
     }
     public int Tuoi() {
