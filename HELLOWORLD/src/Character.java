@@ -1,14 +1,14 @@
 public class Character
 {
 		private int level;
-        private String name;
+        private String _name;
         public Character()
         {
         	
         }
         public Character(String name)
         {
-            this.name = name;
+            this._name = name;
         }
         public Character(int level, String name)
         {
