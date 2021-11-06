@@ -1,11 +1,11 @@
 public class People {
     private int _tuoi;
-    private String name;
+    private String _name;
     public void setName(String N) {
-        this.name = N;
+        this._name = N;
     }
     public String Name() {
-        return this.name;
+        return this._name;
     }
     public void setTuoi(int T) {
         this._tuoi = T;
