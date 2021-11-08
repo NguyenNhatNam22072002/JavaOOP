@@ -3,7 +3,6 @@ public class Program {
         People P1 = new People();
         P1.setName("LoganZ");
         P1.setTuoi(19);
-        System.out.println(P1.Name());
-        System.out.println(P1.Tuoi());
+        P1.PrintInfo();
     }
 }

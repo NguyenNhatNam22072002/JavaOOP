@@ -4,13 +4,11 @@ public class People {
     public void setName(String N) {
         this._name = N;
     }
-    public String Name() {
-        return this._name;
-    }
     public void setTuoi(int T) {
         this._tuoi = T;
     }
-    public int Tuoi() {
-        return this._tuoi;
+    public void PrintInfo(){
+        System.out.println("Ho ten: "+this._name);
+        System.out.println("Tuoi: "+this._tuoi);
     }
 }
