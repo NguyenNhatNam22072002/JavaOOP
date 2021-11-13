@@ -4,7 +4,10 @@ interface PrintName{
 interface PrintAge{
     void Printage();
 }
-class Person implements PrintName, PrintAge{
+interface PrintAddress{
+    void Printaddress();
+}
+class Person implements PrintName, PrintAge, PrintAddress{
     private String name;
     private int age;
     private String address;
@@ -46,6 +49,10 @@ class Person implements PrintName, PrintAge{
     public void Printage(){
         System.out.println("Age :" + age);
     } 
+
+    public void Printaddress(){
+        System.out.println("Address :" + address);
+    }
 }
 
 public class Entry {
@@ -53,9 +60,11 @@ public class Entry {
 		Student s = new Student("Khanh", 23, "Ha Noi", 9.0);
 		s.Printname();
         s.Printage();
+        s.Printaddress();
 		System.out.println();
 		Teacher t = new Teacher("Tung", 34, "Ha Noi", 1700);
 		t.Printname();
         t.Printage();
+        t.Printaddress();
 	}
 }
