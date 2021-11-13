@@ -1,3 +1,6 @@
+interface PrintSalary{
+    void Printsalary();
+}
 
 public class Teacher extends Person {
     private int salary;
@@ -15,9 +18,7 @@ public class Teacher extends Person {
         this.salary = salary;
     }
 
-    @Override
-    public void Printname(){
-        super.Printname();
+    public void Printsalary(){
         System.out.println("Salary :" + salary);
     }
 }
