@@ -1,4 +1,6 @@
-
+interface PrintGpa{
+    void Printgpa();
+}
 public class Student extends Person{
     private double gpa;
 
@@ -15,9 +17,7 @@ public class Student extends Person{
         this.gpa = gpa;
     }
 
-    @Override
-    public void Printname(){
-        super.Printname();
+    public void Printgpa(){
         System.out.println("GPA :" + gpa);
     }
 }
