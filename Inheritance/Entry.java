@@ -31,7 +31,8 @@ class Person implements PrintName, PrintAge, PrintAddress{
     }
 
     public void setAge(int age){
-        this.age = age;
+        if(age > 0) this.age = age;
+        else System.out.println("Age must be >0");
     }
 
     public String getAddress(){
@@ -61,10 +62,12 @@ public class Entry {
 		s.Printname();
         s.Printage();
         s.Printaddress();
+        s.Printgpa();
 		System.out.println();
 		Teacher t = new Teacher("Tung", 34, "Ha Noi", 1700);
 		t.Printname();
         t.Printage();
         t.Printaddress();
+        t.Printsalary();
 	}
 }
