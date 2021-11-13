@@ -16,8 +16,8 @@ public class Student extends Person{
     }
 
     @Override
-    public void display(){
-        super.display();
+    public void Printname(){
+        super.Printname();
         System.out.println("GPA :" + gpa);
     }
 }
