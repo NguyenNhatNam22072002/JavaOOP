@@ -1,8 +1,10 @@
-interface PrintName
-{
+interface PrintName{
     void Printname();
 }
-class Person implements PrintName{
+interface PrintAge{
+    void Printage();
+}
+class Person implements PrintName, PrintAge{
     private String name;
     private int age;
     private String address;
@@ -36,21 +38,24 @@ class Person implements PrintName{
     public void setAddress(String address){
         this.address = address;
     }
-    @Override
+
     public void Printname(){
         System.out.println("Name :" + name);
-        // System.out.println("Age :" + age);
-        // System.out.println("Address " + address);
     }
-}
 
+    public void Printage(){
+        System.out.println("Age :" + age);
+    } 
+}
 
 public class Entry {
 	public static void main(String[] args) {
 		Student s = new Student("Khanh", 23, "Ha Noi", 9.0);
 		s.Printname();
+        s.Printage();
 		System.out.println();
 		Teacher t = new Teacher("Tung", 34, "Ha Noi", 1700);
 		t.Printname();
+        t.Printage();
 	}
 }
