@@ -16,8 +16,8 @@ public class Teacher extends Person {
     }
 
     @Override
-    public void display(){
-        super.display();
+    public void Printname(){
+        super.Printname();
         System.out.println("Salary :" + salary);
     }
 }
