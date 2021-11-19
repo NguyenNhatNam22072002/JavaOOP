@@ -54,20 +54,26 @@ class Person implements PrintName, PrintAge, PrintAddress{
     public void Printaddress(){
         System.out.println("Address :" + address);
     }
+    public void NAM()
+    {
+        System.out.println("CHA");
+    }
+    int n = 5;
 }
 
 public class Entry {
 	public static void main(String[] args) {
-		Student s = new Student("Khanh", 23, "Ha Noi", 9.0);
-		s.Printname();
-        s.Printage();
-        s.Printaddress();
-        s.Printgpa();
-		System.out.println();
-		Teacher t = new Teacher("Tung", 34, "Ha Noi", 1700);
-		t.Printname();
-        t.Printage();
-        t.Printaddress();
-        t.Printsalary();
+        Person s = new Student("Khanh", 23, "Ha Noi", 9.0);
+        System.out.println(s.n);
+        
+        // s.Printage();
+        // s.Printaddress();
+        // s.Printgpa();
+        // System.out.println();
+        // Teacher t = new Teacher("Tung", 34, "Ha Noi", 1700);
+        // t.Printname();
+        // t.Printage();
+        // t.Printaddress();
+        // t.Printsalary();
 	}
 }
