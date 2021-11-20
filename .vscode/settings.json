@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Inheritance",
         "HELLOWORLD/src",
-        "Inheritance"
+        "Interface_Polymorphism"
     ]
 }
