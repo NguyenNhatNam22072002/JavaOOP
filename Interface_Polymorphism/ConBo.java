@@ -8,7 +8,7 @@ public class ConBo extends DVAnCo{
         super(t);
     }
     @Override
-    public  void keu()
+    public void keu()
     {
         System.out.println("Toi keu UUhhmmmm ... BBoo...!!!");
     }

@@ -7,12 +7,12 @@ interface PrintAge{
 interface PrintAddress{
     void Printaddress();
 }
-class Person implements PrintName, PrintAge, PrintAddress{
+class People implements PrintName, PrintAge, PrintAddress{
     private String name;
     private int age;
     private String address;
 
-    public Person(String name, int age, String address){
+    public People(String name, int age, String address){
         this.name = name;
         this.age = age;
         this.address = address;
@@ -63,7 +63,7 @@ class Person implements PrintName, PrintAge, PrintAddress{
 
 public class Entry {
 	public static void main(String[] args) {
-        Person s = new Student("Khanh", 23, "Ha Noi", 9.0);
+        People s = new Student("Khanh", 23, "Ha Noi", 9.0);
         System.out.println(s.n);
         
         // s.Printage();

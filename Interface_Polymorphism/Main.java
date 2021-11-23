@@ -1,3 +1,7 @@
+@FunctionalInterface
+interface Say{
+    void say();
+} 
 public class Main {
 	public static void main(String[] args) {
         DongVat[] dv = new DongVat[5];
@@ -11,6 +15,8 @@ public class Main {
             dongVat.an();
             dongVat.keu();
         }
+        Say s = () -> {System.out.println("Chung toi la Dong Vat!!!");};
+        s.say();
     }
 }
 

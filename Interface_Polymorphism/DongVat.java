@@ -1,5 +1,5 @@
 interface An{
-    void an();
+    public void an();
 }
 
 interface Keu{
@@ -24,6 +24,7 @@ public class DongVat implements An, Keu{
     {
         this.ten = ten;
     }
+    // public An a = () -> {};
     public void an() { }
     public void keu() { }
 }
