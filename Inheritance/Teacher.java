@@ -2,7 +2,7 @@ interface PrintSalary{
     void Printsalary();
 }
 
-public class Teacher extends Person {
+public class Teacher extends People {
     private int salary;
 
     public Teacher(String name, int age, String address, int salary){

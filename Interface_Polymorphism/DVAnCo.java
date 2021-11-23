@@ -7,6 +7,7 @@ public class DVAnCo extends DongVat{
     {
         super(t);
     }
+    // An a = () -> {System.out.println("Toi an Co tuoi!!!");};
     @Override
     public void an()
     {
