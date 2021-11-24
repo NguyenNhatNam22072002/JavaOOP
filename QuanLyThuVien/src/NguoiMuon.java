@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
-    private int _Sosach;
+    int _Sosach;
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
@@ -57,6 +57,5 @@ public class NguoiMuon extends Person {
         System.out.println("Ho va ten nguoi muon: " + this.Hoten);
         System.out.println("Sdt: " + this.Sdt);
         System.out.println("Dia chi: " + this.Diachi);
-        System.out.println("So sach muon: " + this._Sosach);
     }
 }

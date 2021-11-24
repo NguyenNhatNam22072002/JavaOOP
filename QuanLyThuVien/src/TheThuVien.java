@@ -36,6 +36,17 @@ public class TheThuVien {
         this._nm.NhapInfo();
         System.out.print("Nhap ma the: ");
         this._Mathe = sc.nextLine();
+        System.out.print("Nhap so sach muon: ");
+        this._nm._Sosach = sc.nextInt();
+        // for(int i = 1; i <= this._nm._Sosach; i++)
+        // {
+        //     System.out.print("Nhap ten sach: ");
+        //     this._Mathe = sc.nextLine();
+        // }
+        // Sach[] sach = new Sach[this._Sosach];
+        // for (Sach s : sach) {
+        //     s = new Sach();
+        // }
         System.out.print("Nhap ngay muon: ");
         this._ngaymuon = sc.nextLine();
         System.out.print("Nhap ngay tra: ");
@@ -46,6 +57,7 @@ public class TheThuVien {
         this._nm.XuatInfo();
         System.out.println("Ma the: " + this._Mathe);
         System.out.print("Ngay tra: " + this._ngaytra);
+        System.out.println("So sach muon: " + this._nm._Sosach);
         //System.out.print("Ten sach tra: " + );
     }
 }
