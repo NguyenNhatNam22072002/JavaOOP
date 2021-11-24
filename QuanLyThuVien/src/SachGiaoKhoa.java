@@ -3,24 +3,24 @@ public class SachGiaoKhoa extends Sach {
     public SachGiaoKhoa(){
         super();
     }
-    public SachGiaoKhoa(String lop){
+    public SachGiaoKhoa(int lop){
         super();
         this.lop = lop;
     }
-    public int setLop(int lop){
+    public void setLop(int lop){
         this.lop = lop;
     }
     public int getLop(){
         return lop;
     }
     public void nhapSach() {
-        super.nhapSach();
+        super.NhapSach();
         System.out.print("Nhap lop cua sach: ");
         lop = scanner.nextInt();
     }
     @Override
-    public String toString() {
-        return "Ma sach: " + this.maSach + ", ten nha xuat ban: " + this.nhaXuatBan + ", gia: " + 
-        this.donGia + ", so luong: " + this.soLuong + ", phan loai lop: " + this.lop;
+    public String InSach() {
+        return "Ma sach: " + this.maSach + ", ten nha xuat ban: " + this.tenNXB + ", gia: " + 
+        this.gia + ", so luong: " + this.soluong + ", phan loai lop: " + this.lop;
     }
 }

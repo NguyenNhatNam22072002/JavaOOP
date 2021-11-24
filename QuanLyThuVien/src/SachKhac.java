@@ -7,15 +7,20 @@ public class SachKhac extends Sach {
         super();
         this.theloai = theloai;
     }
-    public String setTheloai(String theloai){
+    public void setTheloai(String theloai){
         this.theloai = theloai;
     }
-    public getTheloai(){
+    public String getTheloai(){
         return this.theloai;
     }
+    public void NhapSach(){
+        super.NhapSach();
+        System.out.print("Nhap the loai cua sach: ");
+        theloai = scanner.nextLine();
+    }
     @Override
-    public String toString(){
-        return "Ma sach: " + this.maSach + ", ten nha xuat ban: " + this.nhaXuatBan  + ", the loai: " + 
-        this.theloai + ", gia: " + this.donGia + ", so luong: " + this.soLuong;
+    public String InSach(){
+        return "Ma sach: " + this.maSach + ", ten nha xuat ban: " + this.tenNXB  + ", the loai: " + 
+        this.theloai + ", gia: " + this.gia + ", so luong: " + this.soluong;
     }
 }

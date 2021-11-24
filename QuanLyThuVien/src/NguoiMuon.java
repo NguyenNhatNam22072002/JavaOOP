@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class NguoiMuon extends Person {
     private int _Sosach;
+    Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
     {
@@ -18,7 +19,6 @@ public class NguoiMuon extends Person {
     @Override
     public void NhapInfo()
     {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ho ten nguoi muon: ");
         this.Hoten = sc.nextLine();
         System.out.print("Nhap sdt: ");
