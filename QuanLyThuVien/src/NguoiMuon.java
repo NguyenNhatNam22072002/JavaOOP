@@ -25,12 +25,6 @@ public class NguoiMuon extends Person {
         this.Sdt = sc.nextLine();
         System.out.print("Nhap dia chi: ");
         this.Diachi = sc.nextLine();
-        System.out.print("Nhap so sach muon: ");
-        this._Sosach = sc.nextInt();
-        // Sach[] sach = new Sach[this._Sosach];
-        // for (Sach s : sach) {
-        //     s[i].NhapInfo();
-        // }
     }
     @Override
     public void XuatInfo()
@@ -38,6 +32,5 @@ public class NguoiMuon extends Person {
         System.out.println("Ho va ten nguoi muon: " + this.Hoten);
         System.out.println("Sdt: " + this.Sdt);
         System.out.println("Dia chi: " + this.Diachi);
-        System.out.println("So sach muon: " + this._Sosach);
     }
 }
