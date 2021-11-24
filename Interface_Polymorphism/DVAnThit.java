@@ -8,6 +8,7 @@ public class DVAnThit extends DongVat{
     {
         super(t);
     }
+    // An a = () -> {System.out.println("Toi an thit song!!!");};
     @Override
     public void an()
     {

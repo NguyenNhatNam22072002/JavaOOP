@@ -1,7 +1,7 @@
 interface PrintGpa{
     void Printgpa();
 }
-public class Student extends Person{
+public class Student extends People{
     private double gpa;
 
     public Student(String name, int age, String address, double gpa){
