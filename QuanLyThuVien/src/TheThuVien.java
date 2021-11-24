@@ -5,6 +5,8 @@ public class TheThuVien {
     private String _Mathe;
     private String _ngaymuon;
     private String _ngaytra;
+    Scanner sc = new Scanner(System.in);
+    
     public TheThuVien() 
     {
         
@@ -32,7 +34,6 @@ public class TheThuVien {
     {
         this._nm = new NguoiMuon();
         this._nm.NhapInfo();
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ma the: ");
         this._Mathe = sc.nextLine();
         System.out.print("Nhap ngay muon: ");
@@ -42,7 +43,7 @@ public class TheThuVien {
     }
     public void XuatInfo()
     {
-        this._mn.XuatInfo();
+        this._nm.XuatInfo();
         System.out.println("Ma the: " + this._Mathe);
         System.out.print("Ngay tra: " + this._ngaytra);
         //System.out.print("Ten sach tra: " + );

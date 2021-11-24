@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class NhanVien extends Person {
+    Scanner sc = new Scanner(System.in);
     public NhanVien() 
     {
         super();
@@ -16,7 +17,6 @@ public class NhanVien extends Person {
     @Override
     public void NhapInfo()
     {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Nhap ho ten nhan vien: ");
         this.Hoten = sc.nextLine();
         System.out.print("Nhap sdt: ");
