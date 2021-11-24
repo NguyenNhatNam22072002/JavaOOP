@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class QuanLy {
     public static void main(String[] args){
         ArrayList ds = new ArrayList();

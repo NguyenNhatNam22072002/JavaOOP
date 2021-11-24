@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
-    private int _Sosach;
+    int _Sosach;
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
@@ -25,6 +26,30 @@ public class NguoiMuon extends Person {
         this.Sdt = sc.nextLine();
         System.out.print("Nhap dia chi: ");
         this.Diachi = sc.nextLine();
+        System.out.print("Nhap so sach muon: ");
+        this._Sosach = sc.nextInt();
+        ArrayList<ThuVien> thuvien = new ArrayList<ThuVien>();
+        for (ThuVien t : thuvien) {
+            int number = 0;
+            System.out.print("Loai sach ban muon muon(SGK: 1/ Sach Tham khao: 2/ Sach khac: 3): ");
+            number = sc.nextInt();
+            Sach sach;
+            switch (number) {
+                case 1:
+                    sach = new SachGiaoKhoa();
+                    sach.MuonSach();
+                    break;
+                case 2:
+                    sach = new SachThamKhao();
+                    sach.MuonSach();
+                    break;
+                default:
+                    sach= new SachKhac();
+                    sach.MuonSach();
+                    break;
+            }
+            t.them(sach);
+        }
     }
     @Override
     public void XuatInfo()
