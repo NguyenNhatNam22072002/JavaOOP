@@ -1,7 +1,10 @@
+import java.util.Scanner;
+
 public abstract class Sach {
-    private String maSach, tenNXB;
-    private double gia;
-    private int soluong;
+    protected String maSach;
+    protected String tenNXB;
+    protected double gia;
+    protected int soluong;
     Scanner scanner = new Scanner(System.in);
 
     public Sach(){
@@ -55,5 +58,5 @@ public abstract class Sach {
         System.out.print("Nhap so luong: ");
         soluong = scanner.nextInt();
     }
-    public abstract String toString();
+    public abstract String InSach();
 }
