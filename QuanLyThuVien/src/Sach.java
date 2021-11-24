@@ -3,18 +3,16 @@ import java.util.Scanner;
 public abstract class Sach {
     protected String maSach;
     protected String tenNXB;
-    protected double gia;
     protected int soluong;
     Scanner scanner = new Scanner(System.in);
 
     public Sach(){
         super();
     }
-    public Sach(String maSach, String nhaXuatBan, double donGia, int soLuong) {
+    public Sach(String maSach, String nhaXuatBan, int soLuong) {
         super();
         this.maSach = maSach;
         this.tenNXB = nhaXuatBan;
-        this.gia = donGia;
         this.soluong = soLuong;
     }
     public String getMaSach() {
@@ -33,14 +31,6 @@ public abstract class Sach {
         this.tenNXB = nhaXuatBan;
     }
  
-    public double getDonGia() {
-        return gia;
-    }
- 
-    public void setDonGia(double donGia) {
-        this.gia = donGia;
-    }
- 
     public int getSoLuong() {
         return soluong;
     }
@@ -53,10 +43,14 @@ public abstract class Sach {
         maSach = scanner.nextLine();
         System.out.print("Nhap ten nha xuat ban: ");
         tenNXB = scanner.nextLine();
-        System.out.print("Nhap don gia: ");
-        gia = scanner.nextDouble();
         System.out.print("Nhap so luong: ");
         soluong = scanner.nextInt();
     }
-    public abstract String InSach();
+    public void MuonSach(){
+        System.out.print("Nhap ma sach: ");
+        maSach = scanner.nextLine();
+        System.out.print("Nhap so luong muon: ");
+        soluong = scanner.nextInt();
+    }
+    public abstract void InSach();
 }

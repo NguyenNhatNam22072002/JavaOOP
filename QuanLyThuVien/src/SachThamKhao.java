@@ -19,8 +19,10 @@ public class SachThamKhao extends Sach {
         loai = scanner.nextLine();
     }
     @Override
-    public String InSach() {
-        return "Ma sach: " + this.maSach + ", ten nha xuat ban: " + ", phan loai sach: " + this.loai 
-        + this.tenNXB + ", gia: " + this.gia + ", so luong: " + this.soluong;
+    public void InSach() {
+        String header = String.format("%-12s%-12s%s-12s%s", "Ma sach", "Ten NXB", "Phan loai", "So luong");
+        String row = String.format("%-12s%-12s-12s%s", this.maSach, this.tenNXB, this.loai, this.soluong);
+        System.out.println(header);
+        System.out.println(row);
     }
 }
