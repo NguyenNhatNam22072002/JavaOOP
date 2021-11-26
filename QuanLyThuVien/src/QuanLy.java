@@ -17,5 +17,6 @@ public class QuanLy {
             s = sc.nextLine();
          }while(s=="Yes"||s=="yes");
         System.out.println("=============================================");
+        sc.close();
     }
 }

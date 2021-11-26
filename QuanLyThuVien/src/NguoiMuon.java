@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class NguoiMuon extends Person {
     public int _Sosach;
-    public ArrayList<Sach> _thuvien;
+    public ArrayList<Sach> _thuvien = new ArrayList<Sach>();
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
