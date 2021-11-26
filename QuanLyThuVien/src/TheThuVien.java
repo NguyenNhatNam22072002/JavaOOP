@@ -39,7 +39,7 @@ public class TheThuVien {
         this._Mathe = sc.nextLine();
         System.out.print("Nhap so sach muon: ");
         this._nm._Sosach = sc.nextInt();
-        System.out.print("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
+        System.out.println("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
         for (int i = 0; i < this._nm.getSosach(); i++) {
             int number;
             number = sc.nextInt();
@@ -52,15 +52,17 @@ public class TheThuVien {
                     sach.MuonSach();
                     break;
                 case 2:
+                    tensach = sc.nextLine();
                     sach = new SachThamKhao();
                     sach.MuonSach();
                     break;
                 default:
+                    tensach = sc.nextLine();
                     sach= new SachKhac();
                     sach.MuonSach();
                     break;
             }
-            this._nm.thuvien().them(sach);
+            this._nm._thuvien.add(sach);
         }
         System.out.print("Nhap ngay muon: ");
         this._ngaymuon = sc.nextLine();
@@ -73,10 +75,10 @@ public class TheThuVien {
         System.out.println("-Ma the: " + this._Mathe);
         System.out.print("-Ngay tra: " + this._ngaytra);
         System.out.println("-So sach muon: " + this._nm.getSosach());
-        ArrayList<ThuVien> Cacsach = this._nm.thuvien(); 
+        ArrayList<Sach> Cacsach = this._nm._thuvien; 
         for(int i = 0; i < this._nm.getSosach(); i++)
         {
-            System.out.print("Ten sach thu " + i + " la:" + Cacsach[i]);
+            System.out.print("Ten sach thu " + i + " la:" + Cacsach.get(i));
             System.out.println();
         }
     }

@@ -1,10 +1,9 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
-    private int _Sosach;
-    private ArrayList<ThuVien> _thuvien;
+    public int _Sosach;
+    public ArrayList<Sach> _thuvien;
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
@@ -22,10 +21,6 @@ public class NguoiMuon extends Person {
     public int getSosach()
     {
         return this._Sosach;
-    }
-    public ArrayList<ThuVien> thuvien()
-    {
-        return this._thuvien;
     }
 
     @Override

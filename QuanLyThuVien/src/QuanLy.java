@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class QuanLy {
     public static void main(String[] args){
-        ArrayList ds = new ArrayList();
+        ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
         Scanner sc = new Scanner(System.in);
         String s;
         int d = 0; 
@@ -14,7 +14,7 @@ public class QuanLy {
             t.NhapInfo();
             ds.add(t);
             System.out.print("Co muon nhap nua khong (Yes/No): ");
-            s=sc.nextLine();
+            s = sc.nextLine();
          }while(s=="Yes"||s=="yes");
         System.out.println("=============================================");
     }
