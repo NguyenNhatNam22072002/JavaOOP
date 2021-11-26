@@ -1,7 +1,7 @@
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class QuanLy {
     public static void main(String[] args){
@@ -19,12 +19,15 @@ public class QuanLy {
         listsachkhac.add(Conan);    listsachgiaokhoa.add(sachToan);
         Scanner sc = new Scanner(System.in);
 
+        ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
+
         int chon = 0;
         do{
         System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Muon sach.\n");
         System.out.print("4. Danh sach nguoi muon.\n5. Danh nguoi muon qua thoi han\n6. Exit.\n");
         System.out.print("Ban chon: ");
         chon = sc.nextInt();
+        System.out.println("======================================================================");
         switch(chon){
             case 1:
                 int chon2;
@@ -48,6 +51,7 @@ public class QuanLy {
                         }
                         break;
                 }
+                System.out.println("======================================================================");
                 break;
             case 2:
                 System.out.print("Co "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " sach:\n");
@@ -81,9 +85,9 @@ public class QuanLy {
                     }
                     System.out.print("\n");
                 }
+                System.out.println("======================================================================");
                 break;
             case 3:
-                ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
                 int s;
                 do
                 {
@@ -94,10 +98,29 @@ public class QuanLy {
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
+                System.out.println("======================================================================");
                 break;
             case 4:
+                for(int i = 0; i < ds.size(); i++)
+                {
+                    System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
+                    ds.get(i).XuatInfo();
+                }
+                System.out.println("======================================================================");
                 break;
             case 5:
+                long maToday = System.currentTimeMillis();   
+                Date today = new Date(maToday);   
+                for(int i = 0; i < ds.size(); i++)
+                {
+                    Date date = Date.valueOf(ds.get(i).getNgaytra());
+                    if(today.compareTo(date) > 0) 
+                    {
+                        System.out.println("Thong tin nguoi muon qua han thu " + (i+1) + ":");
+                        ds.get(i).XuatInfo();
+                    }
+                }
+                System.out.println("======================================================================");
                 break;
         }
     }while(chon!=6);
