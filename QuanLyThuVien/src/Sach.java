@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public abstract class Sach {
     protected String maSach;
+    protected String tenSach;
     protected String tenNXB;
     protected int soluong;
     Scanner scanner = new Scanner(System.in);
@@ -9,9 +10,10 @@ public abstract class Sach {
     public Sach(){
         super();
     }
-    public Sach(String maSach, String nhaXuatBan, int soLuong) {
+    public Sach(String maSach, String tenSach,String nhaXuatBan, int soLuong) {
         super();
         this.maSach = maSach;
+        this.tenSach = tenSach;
         this.tenNXB = nhaXuatBan;
         this.soluong = soLuong;
     }
@@ -22,7 +24,15 @@ public abstract class Sach {
     public void setMaSach(String maSach) {
         this.maSach = maSach;
     }
- 
+    
+    public String getTenSach() {
+        return tenSach;
+    }
+
+    public void setTenSach(String tenSach){
+        this.tenSach = tenSach;
+    }
+
     public String getNhaXuatBan() {
         return tenNXB;
     }
@@ -41,6 +51,8 @@ public abstract class Sach {
     public void NhapSach(){
         System.out.print("Nhap ma sach: ");
         maSach = scanner.nextLine();
+        System.out.print("Nhap ten sach: ");
+        tenSach = scanner.nextLine();
         System.out.print("Nhap ten nha xuat ban: ");
         tenNXB = scanner.nextLine();
         System.out.print("Nhap so luong: ");
