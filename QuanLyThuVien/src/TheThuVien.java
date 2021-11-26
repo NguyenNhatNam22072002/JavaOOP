@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TheThuVien {
@@ -38,15 +39,29 @@ public class TheThuVien {
         this._Mathe = sc.nextLine();
         System.out.print("Nhap so sach muon: ");
         this._nm._Sosach = sc.nextInt();
-        // for(int i = 1; i <= this._nm._Sosach; i++)
-        // {
-        //     System.out.print("Nhap ten sach: ");
-        //     this._Mathe = sc.nextLine();
-        // }
-        // Sach[] sach = new Sach[this._Sosach];
-        // for (Sach s : sach) {
-        //     s = new Sach();
-        // }
+        System.out.print("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
+        for (int i = 0; i < this._nm.getSosach(); i++) {
+            int number;
+            number = sc.nextInt();
+            Sach sach;
+            String tensach;
+            switch (number) {
+                case 1:
+                    tensach = sc.nextLine();
+                    sach = new SachGiaoKhoa();
+                    sach.MuonSach();
+                    break;
+                case 2:
+                    sach = new SachThamKhao();
+                    sach.MuonSach();
+                    break;
+                default:
+                    sach= new SachKhac();
+                    sach.MuonSach();
+                    break;
+            }
+            this._nm.thuvien().them(sach);
+        }
         System.out.print("Nhap ngay muon: ");
         this._ngaymuon = sc.nextLine();
         System.out.print("Nhap ngay tra: ");
@@ -55,9 +70,14 @@ public class TheThuVien {
     public void XuatInfo()
     {
         this._nm.XuatInfo();
-        System.out.println("Ma the: " + this._Mathe);
-        System.out.print("Ngay tra: " + this._ngaytra);
-        System.out.println("So sach muon: " + this._nm._Sosach);
-        //System.out.print("Ten sach tra: " + );
+        System.out.println("-Ma the: " + this._Mathe);
+        System.out.print("-Ngay tra: " + this._ngaytra);
+        System.out.println("-So sach muon: " + this._nm.getSosach());
+        ArrayList<ThuVien> Cacsach = this._nm.thuvien(); 
+        for(int i = 0; i < this._nm.getSosach(); i++)
+        {
+            System.out.print("Ten sach thu " + i + " la:" + Cacsach[i]);
+            System.out.println();
+        }
     }
 }

@@ -1,8 +1,10 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
-    int _Sosach;
+    private int _Sosach;
+    private ArrayList<ThuVien> _thuvien;
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 
@@ -17,6 +19,15 @@ public class NguoiMuon extends Person {
     {
         super(n);
     }
+    public int getSosach()
+    {
+        return this._Sosach;
+    }
+    public ArrayList<ThuVien> thuvien()
+    {
+        return this._thuvien;
+    }
+
     @Override
     public void NhapInfo()
     {
@@ -26,36 +37,13 @@ public class NguoiMuon extends Person {
         this.Sdt = sc.nextLine();
         System.out.print("Nhap dia chi: ");
         this.Diachi = sc.nextLine();
-        System.out.print("Nhap so sach muon: ");
-        this._Sosach = sc.nextInt();
-        ArrayList<ThuVien> thuvien = new ArrayList<ThuVien>();
-        for (ThuVien t : thuvien) {
-            int number = 0;
-            System.out.print("Loai sach ban muon muon(SGK: 1/ Sach Tham khao: 2/ Sach khac: 3): ");
-            number = sc.nextInt();
-            Sach sach;
-            switch (number) {
-                case 1:
-                    sach = new SachGiaoKhoa();
-                    sach.MuonSach();
-                    break;
-                case 2:
-                    sach = new SachThamKhao();
-                    sach.MuonSach();
-                    break;
-                default:
-                    sach= new SachKhac();
-                    sach.MuonSach();
-                    break;
-            }
-            t.them(sach);
-        }
     }
+    
     @Override
     public void XuatInfo()
     {
-        System.out.println("Ho va ten nguoi muon: " + this.Hoten);
-        System.out.println("Sdt: " + this.Sdt);
-        System.out.println("Dia chi: " + this.Diachi);
+        System.out.println("-Ho va ten: " + this.Hoten);
+        System.out.println("-Sdt: " + this.Sdt);
+        System.out.println("-Dia chi: " + this.Diachi);
     }
 }
