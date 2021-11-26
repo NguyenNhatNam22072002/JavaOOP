@@ -1,8 +1,7 @@
-//import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.naming.ldap.spi.LdapDnsProviderResult;
 
 public class QuanLy {
     public static void main(String[] args){
@@ -53,31 +52,48 @@ public class QuanLy {
             case 2:
                 System.out.print("Co "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " sach:\n");
                 System.out.println("---------Thong tin SGK-----------");
-                for(int i = 0; i<listsachgiaokhoa.size(); i++){
-                    listsachgiaokhoa.get(i).InSach();
+                if(listsachgiaokhoa.size()==0){
+                    System.out.println("\nKhong co sach!\n");
+                }
+                else{
+                    for(int i = 0; i<listsachgiaokhoa.size(); i++){
+                        listsachgiaokhoa.get(i).InSach();
+                    }
+                    System.out.print("\n");
                 }
                 System.out.println("----Thong tin sach tham khao-----");
-                for(int i = 0; i<listsachthamkhao.size(); i++){
-                    listsachthamkhao.get(i).InSach();
+                if(listsachthamkhao.size()==0){
+                    System.out.println("\nKhong co sach!\n");
+                }
+                else{
+                    for(int i = 0; i<listsachthamkhao.size(); i++){
+                        listsachthamkhao.get(i).InSach();
+                    }
+                    System.out.print("\n");
                 }
                 System.out.println("-------Thong tin sach khac--------");
-                for(int i = 0; i<listsachkhac.size(); i++){
-                    listsachkhac.get(i).InSach();
+                if(listsachkhac.size()==0){
+                    System.out.println("\nKhong co sach!\n");
+                }
+                else{
+                    for(int i = 0; i<listsachkhac.size(); i++){
+                        listsachkhac.get(i).InSach();
+                    }
+                    System.out.print("\n");
                 }
                 break;
             case 3:
                 ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
-                String s;
-                int d = 0; 
+                int s;
                 do
                 {
-                    System.out.println("Nhap thong tin nguoi muon thu:" + (++d));
+                    System.out.println("Nhap thong tin nguoi muon");
                     TheThuVien t = new TheThuVien();
                     t.NhapInfo();
                     ds.add(t);
-                    System.out.print("Co muon nhap nua khong (Yes/No): ");
-                    s = sc.nextLine();
-                }while(s=="Yes"||s=="yes");
+                    System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
+                    s = sc.nextInt();
+                } while(s==1);
                 break;
             case 4:
                 break;
