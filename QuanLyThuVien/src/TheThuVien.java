@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TheThuVien {
-    private NguoiMuon _nm;
+    public NguoiMuon _nm;
     private String _Mathe;
     private Date _ngaymuon;
     private String _ngaytra;

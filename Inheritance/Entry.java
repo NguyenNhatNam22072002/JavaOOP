@@ -63,8 +63,8 @@ class People implements PrintName, PrintAge, PrintAddress{
 
 public class Entry {
 	public static void main(String[] args) {
-        People s = new Student("Khanh", 23, "Ha Noi", 9.0);
-        System.out.println(s.n);
+        People s = new People("Khanh", 23, "Ha Noi");
+        s.NAM();
         
         // s.Printage();
         // s.Printaddress();
