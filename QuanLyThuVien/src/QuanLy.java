@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.io.*;
 
 public class QuanLy {
     public static void main(String[] args){
@@ -26,6 +27,8 @@ public class QuanLy {
 
         int chon = 0;
         do{
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
         System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Muon sach.\n");
         System.out.print("4. Danh sach nguoi muon.\n5. Danh nguoi muon qua thoi han\n6. Exit.\n");
         System.out.print("Ban chon: ");
@@ -42,6 +45,11 @@ public class QuanLy {
                         for(int i=0; i<listNV.size(); i++){
                             listNV.get(i).XuatInfo();
                         }
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            System.out.println(e);
+                        }
                         break;
                     case 2:
                         System.out.print("So nhan vien can them: ");
@@ -56,9 +64,9 @@ public class QuanLy {
                 break;
             case 2:
                 System.out.print("Co "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " sach:\n");
-                System.out.println("\t\t   ---------Thong tin SGK-----------");
+                System.out.println("\t\t    ---------Thong tin SGK-----------");
                 if(listsachgiaokhoa.size()==0){
-                    System.out.println("\n\t\t   Khong co sach!\n");
+                    System.out.println("\n\t\t    Khong co sach!\n");
                 }
                 else{
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan lop", "So luong");
@@ -81,9 +89,9 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                 }
-                System.out.println("\t\t   ----Thong tin sach tham khao-----");
+                System.out.println("\t\t    ----Thong tin sach tham khao-----");
                 if(listsachthamkhao.size()==0){
-                    System.out.println("\n\t\t   Khong co sach!\n");
+                    System.out.println("\n\t\t    Khong co sach!\n");
                 }
                 else{
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan loai", "So luong");
@@ -106,9 +114,9 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                 }
-                System.out.println("\t\t   -------Thong tin sach khac--------");
+                System.out.println("\t\t    -------Thong tin sach khac--------");
                 if(listsachkhac.size()==0){
-                    System.out.println("\n\t\t   Khong co sach!\n");
+                    System.out.println("\n\t\t    Khong co sach!\n");
                 }
                 else{
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
@@ -131,6 +139,11 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                 }
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
                 break;
             case 3:
                 int s;
@@ -143,12 +156,22 @@ public class QuanLy {
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
                 break;
             case 4:
                 for(int i = 0; i < ds.size(); i++)
                 {
                     System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
                     ds.get(i).XuatInfo();
+                }
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
                 }
                 break;
             case 5:
@@ -162,6 +185,11 @@ public class QuanLy {
                         System.out.println("Thong tin nguoi muon qua han thu " + (i+1) + ":");
                         ds.get(i).XuatInfo();
                     }
+                }
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
                 }
                 break;
         }
