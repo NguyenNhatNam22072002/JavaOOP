@@ -244,7 +244,7 @@ public class QuanLy {
                         Board board1 = new Board(72);
                         Table table1 = new Table(board1, 72, header, row);
                         List<Integer> colAlignList1 = Arrays.asList(
-                        Block.DATA_CENTER,              
+                        Block.DATA_CENTER,
                         Block.DATA_CENTER,
                         Block.DATA_CENTER);
                         List<Integer> colWidthsListEdited1 = Arrays.asList(20, 15, 33);
