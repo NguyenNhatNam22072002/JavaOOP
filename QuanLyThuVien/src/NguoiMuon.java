@@ -1,4 +1,7 @@
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
@@ -22,7 +25,6 @@ public class NguoiMuon extends Person {
     {
         return this._Sosach;
     }
-
     @Override
     public void NhapInfo()
     {
@@ -35,10 +37,8 @@ public class NguoiMuon extends Person {
     }
     
     @Override
-    public void XuatInfo()
+    public List<String> XuatInfo()
     {
-        System.out.println("-Ho va ten: " + this.Hoten);
-        System.out.println("-Sdt: " + this.Sdt);
-        System.out.println("-Dia chi: " + this.Diachi);
+        return Arrays.asList(this.Hoten, this.Sdt, this.Diachi);
     }
 }

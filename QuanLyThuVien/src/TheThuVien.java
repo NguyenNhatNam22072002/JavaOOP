@@ -1,5 +1,7 @@
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class TheThuVien {
@@ -31,6 +33,9 @@ public class TheThuVien {
     public void setNgaytra(String ngaytra)
     {
         this._ngaytra = ngaytra;
+    }
+    public String getMaThe(){
+        return this._Mathe;
     }
     public void NhapInfo()
     {
@@ -70,18 +75,25 @@ public class TheThuVien {
         System.out.print("Nhap ngay tra: ");
         this._ngaytra = sc.nextLine();
     }
-    public void XuatInfo()
+    public List<String> XuatInfo()
     {
-        this._nm.XuatInfo();
-        System.out.println("-Ma the: " + this._Mathe);
-        System.out.println("-Ngay muon: " + this._ngaymuon);
-        System.out.println("-Ngay tra: " + this._ngaytra);
-        System.out.println("-So sach muon: " + this._nm.getSosach());
+    //     this._nm.XuatInfo();
+    //     System.out.println("-Ma the: " + this._Mathe);
+    //     System.out.println("-Ngay muon: " + this._ngaymuon);
+    //     System.out.println("-Ngay tra: " + this._ngaytra);
+    //     System.out.println("-So sach muon: " + this._nm.getSosach());
+    //     ArrayList<Sach> Cacsach = this._nm._thuvien; 
+    //     for(int i = 0; i < this._nm.getSosach(); i++)
+    //     {
+    //         System.out.print("+Ma sach thu " + (i+1) + " la:" + Cacsach.get(i).getMaSach());
+    //         System.out.println();
+    //     }
+        String tenSachMuon = "";
         ArrayList<Sach> Cacsach = this._nm._thuvien; 
-        for(int i = 0; i < this._nm.getSosach(); i++)
-        {
-            System.out.print("+Ma sach thu " + (i+1) + " la:" + Cacsach.get(i).getMaSach());
-            System.out.println();
+        for(int i = 0; i < this._nm.getSosach(); i++){
+            tenSachMuon += String.valueOf(Cacsach.get(i).getMaSach()) + "\n";
         }
+        return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe, 
+        String.valueOf(this._ngaymuon), this._ngaytra);
     }
 }
