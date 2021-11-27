@@ -230,7 +230,7 @@ public class QuanLy {
                         List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban");
                         List<List<String>> row = new ArrayList<List<String>>();
                         for(int i = 0; i < ds.size(); i++){
-                            if(ds.get(i).getMaThe() == mathe){
+                            if(ds.get(i).getMaThe().equals(mathe)){
                                 ArrayList<Sach> CacSach = ds.get(i)._nm._thuvien;
                                 for(int j = 0; j < CacSach.size(); j++)
                                     for(int k = 0; k < thuvien.size(); k++)
