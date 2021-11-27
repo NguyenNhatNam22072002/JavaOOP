@@ -1,6 +1,9 @@
 
+
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class QuanLy {
@@ -27,7 +30,6 @@ public class QuanLy {
         System.out.print("4. Danh sach nguoi muon.\n5. Danh nguoi muon qua thoi han\n6. Exit.\n");
         System.out.print("Ban chon: ");
         chon = sc.nextInt();
-        System.out.println("======================================================================");
         switch(chon){
             case 1:
                 int chon2;
@@ -51,41 +53,96 @@ public class QuanLy {
                         }
                         break;
                 }
-                System.out.println("======================================================================");
                 break;
             case 2:
                 System.out.print("Co "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " sach:\n");
-                System.out.println("---------Thong tin SGK-----------");
+                System.out.println("\t\t   ---------Thong tin SGK-----------");
                 if(listsachgiaokhoa.size()==0){
-                    System.out.println("\nKhong co sach!\n");
+                    System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    for(int i = 0; i<listsachgiaokhoa.size(); i++){
-                        listsachgiaokhoa.get(i).InSach();
+                    // for(int i = 0; i<listsachgiaokhoa.size(); i++){
+                    //     listsachgiaokhoa.get(i).InSach();
+                    // }
+                    // System.out.print("\n");
+                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
+                    List<List<String>> rowsList = new ArrayList<List<String>>();
+                    for(int i=0; i<listsachgiaokhoa.size(); i++) {
+                        rowsList.add(listsachgiaokhoa.get(i).InSach());
                     }
-                    System.out.print("\n");
+                    Board board = new Board(75);
+                    Table table = new Table(board, 75, headersList, rowsList);
+                    List<Integer> colAlignList = Arrays.asList(
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER);
+                    table.setColAlignsList(colAlignList);
+                    Block tableBlock = table.tableToBlocks();
+                    board.setInitialBlock(tableBlock);
+                    board.build();
+                    String tableString = board.getPreview();
+                    System.out.println(tableString);
                 }
-                System.out.println("----Thong tin sach tham khao-----");
+                System.out.println("\t\t   ----Thong tin sach tham khao-----");
                 if(listsachthamkhao.size()==0){
-                    System.out.println("\nKhong co sach!\n");
+                    System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    for(int i = 0; i<listsachthamkhao.size(); i++){
-                        listsachthamkhao.get(i).InSach();
+                    // for(int i = 0; i<listsachthamkhao.size(); i++){
+                    //     listsachthamkhao.get(i).InSach();
+                    // }
+                    // System.out.print("\n");
+                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
+                    List<List<String>> rowsList = new ArrayList<List<String>>();
+                    for(int i=0; i<listsachthamkhao.size(); i++) {
+                        rowsList.add(listsachthamkhao.get(i).InSach());
                     }
-                    System.out.print("\n");
+                    Board board = new Board(75);
+                    Table table = new Table(board, 75, headersList, rowsList);
+                    List<Integer> colAlignList = Arrays.asList(
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER);
+                    table.setColAlignsList(colAlignList);
+                    Block tableBlock = table.tableToBlocks();
+                    board.setInitialBlock(tableBlock);
+                    board.build();
+                    String tableString = board.getPreview();
+                    System.out.println(tableString);
                 }
-                System.out.println("-------Thong tin sach khac--------");
+                System.out.println("\t\t   -------Thong tin sach khac--------");
                 if(listsachkhac.size()==0){
-                    System.out.println("\nKhong co sach!\n");
+                    System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    for(int i = 0; i<listsachkhac.size(); i++){
-                        listsachkhac.get(i).InSach();
+                    // for(int i = 0; i<listsachkhac.size(); i++){
+                    //     listsachkhac.get(i).InSach();
+                    // }
+                    // System.out.print("\n");
+                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
+                    List<List<String>> rowsList = new ArrayList<List<String>>();
+                    for(int i=0; i<listsachkhac.size(); i++) {
+                        rowsList.add(listsachkhac.get(i).InSach());
                     }
-                    System.out.print("\n");
+                    Board board = new Board(75);
+                    Table table = new Table(board, 75, headersList, rowsList);
+                    List<Integer> colAlignList = Arrays.asList(
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER);
+                    table.setColAlignsList(colAlignList);
+                    Block tableBlock = table.tableToBlocks();
+                    board.setInitialBlock(tableBlock);
+                    board.build();
+                    String tableString = board.getPreview();
+                    System.out.println(tableString);
                 }
-                System.out.println("======================================================================");
                 break;
             case 3:
                 int s;
@@ -98,7 +155,6 @@ public class QuanLy {
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
-                System.out.println("======================================================================");
                 break;
             case 4:
                 for(int i = 0; i < ds.size(); i++)
@@ -106,7 +162,6 @@ public class QuanLy {
                     System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
                     ds.get(i).XuatInfo();
                 }
-                System.out.println("======================================================================");
                 break;
             case 5:
                 long maToday = System.currentTimeMillis();   
@@ -120,7 +175,6 @@ public class QuanLy {
                         ds.get(i).XuatInfo();
                     }
                 }
-                System.out.println("======================================================================");
                 break;
         }
     }while(chon!=6);

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.List;
 
 public abstract class Sach {
     protected String maSach;
@@ -64,5 +65,5 @@ public abstract class Sach {
         System.out.print("Nhap so luong muon: ");
         soluong = scanner.nextInt();
     }
-    public abstract void InSach();
+    public abstract List<String> InSach();
 }

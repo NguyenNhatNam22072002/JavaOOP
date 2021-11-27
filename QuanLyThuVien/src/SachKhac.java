@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class SachKhac extends Sach {
     private String theloai;
     public SachKhac(){
@@ -19,15 +22,7 @@ public class SachKhac extends Sach {
         theloai = scanner.nextLine();
     }
     @Override
-    public void InSach(){
-        // String header = String.format("%-12s%-12s%s-12s%s", "Ma sach", "Ten NXB", "The loai", "So luong");
-        // String row = String.format("%-12s%-12s-12s%s", this.maSach, this.tenNXB, this.theloai, this.soluong);
-        // System.out.println(header);
-        // System.out.println(row);
-        System.out.println("Ma sach: " + this.maSach);
-        System.out.println("Ten sach: " + this.tenSach);
-        System.out.println("Nha xuat ban: " + this.tenNXB);
-        System.out.println("So luong: " + this.soluong);
-        System.out.println("The loai: " + this.theloai);
-    }
+    public List<String> InSach() {
+        return Arrays.asList(this.maSach, this.tenSach, this.tenNXB, this.theloai, String.valueOf(this.soluong));
+}
 }
