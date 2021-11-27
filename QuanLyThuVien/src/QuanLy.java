@@ -65,7 +65,7 @@ public class QuanLy {
                     //     listsachgiaokhoa.get(i).InSach();
                     // }
                     // System.out.print("\n");
-                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
+                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan lop", "So luong");
                     List<List<String>> rowsList = new ArrayList<List<String>>();
                     for(int i=0; i<listsachgiaokhoa.size(); i++) {
                         rowsList.add(listsachgiaokhoa.get(i).InSach());
@@ -94,7 +94,7 @@ public class QuanLy {
                     //     listsachthamkhao.get(i).InSach();
                     // }
                     // System.out.print("\n");
-                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
+                    List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan loai", "So luong");
                     List<List<String>> rowsList = new ArrayList<List<String>>();
                     for(int i=0; i<listsachthamkhao.size(); i++) {
                         rowsList.add(listsachthamkhao.get(i).InSach());
