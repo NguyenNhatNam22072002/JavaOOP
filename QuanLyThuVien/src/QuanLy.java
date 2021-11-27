@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.io.*;
 
 public class QuanLy {
     public static void main(String[] args){
@@ -45,11 +44,7 @@ public class QuanLy {
                         for(int i=0; i<listNV.size(); i++){
                             listNV.get(i).XuatInfo();
                         }
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            System.out.println(e);
-                        }
+                        wait(2000);
                         break;
                     case 2:
                         System.out.print("So nhan vien can them: ");
@@ -59,6 +54,8 @@ public class QuanLy {
                             newNV.NhapInfo();
                             listNV.add(newNV);
                         }
+                        System.out.println("Nhan Enter de tiep tuc!");
+                        sc.next();
                         break;
                 }
                 break;
@@ -139,11 +136,7 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                 }
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
+                wait(2000);
                 break;
             case 3:
                 int s;
@@ -156,11 +149,7 @@ public class QuanLy {
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
+                wait(2000);
                 break;
             case 4:
                 for(int i = 0; i < ds.size(); i++)
@@ -168,11 +157,7 @@ public class QuanLy {
                     System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
                     ds.get(i).XuatInfo();
                 }
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
+                wait(2000);
                 break;
             case 5:
                 long maToday = System.currentTimeMillis();   
@@ -186,14 +171,20 @@ public class QuanLy {
                         ds.get(i).XuatInfo();
                     }
                 }
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
+                wait(2000);
                 break;
         }
     }while(chon!=6);
         sc.close();
+    }
+    public static void wait(int ms){
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 }
