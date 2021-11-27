@@ -1,3 +1,5 @@
+import java.util.List;
+
 public abstract class Person {
     protected String Hoten;
     protected String Sdt;
@@ -43,5 +45,5 @@ public abstract class Person {
         this.Diachi = diachi;
     }
     public abstract void NhapInfo();
-    public abstract void XuatInfo();
+    public abstract List<String> XuatInfo();
 }
