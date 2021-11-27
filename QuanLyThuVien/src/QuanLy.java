@@ -61,10 +61,6 @@ public class QuanLy {
                     System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    // for(int i = 0; i<listsachgiaokhoa.size(); i++){
-                    //     listsachgiaokhoa.get(i).InSach();
-                    // }
-                    // System.out.print("\n");
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan lop", "So luong");
                     List<List<String>> rowsList = new ArrayList<List<String>>();
                     for(int i=0; i<listsachgiaokhoa.size(); i++) {
@@ -90,10 +86,6 @@ public class QuanLy {
                     System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    // for(int i = 0; i<listsachthamkhao.size(); i++){
-                    //     listsachthamkhao.get(i).InSach();
-                    // }
-                    // System.out.print("\n");
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "Phan loai", "So luong");
                     List<List<String>> rowsList = new ArrayList<List<String>>();
                     for(int i=0; i<listsachthamkhao.size(); i++) {
@@ -119,10 +111,6 @@ public class QuanLy {
                     System.out.println("\n\t\t   Khong co sach!\n");
                 }
                 else{
-                    // for(int i = 0; i<listsachkhac.size(); i++){
-                    //     listsachkhac.get(i).InSach();
-                    // }
-                    // System.out.print("\n");
                     List<String> headersList = Arrays.asList("Ma sach", "Ten sach", "Nha xuat ban", "The loai", "So luong");
                     List<List<String>> rowsList = new ArrayList<List<String>>();
                     for(int i=0; i<listsachkhac.size(); i++) {
