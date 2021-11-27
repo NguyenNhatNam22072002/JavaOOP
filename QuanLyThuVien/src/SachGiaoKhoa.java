@@ -1,10 +1,13 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class SachGiaoKhoa extends Sach {
     private int lop;
     public SachGiaoKhoa(){
         super();
     }
-    public SachGiaoKhoa(int lop){
-        super();
+    public SachGiaoKhoa(String maSach, String tenSach,String nhaXuatBan, int soLuong ,int lop){
+        super(maSach, tenSach, nhaXuatBan, soLuong);
         this.lop = lop;
     }
     public void setLop(int lop){
@@ -19,10 +22,7 @@ public class SachGiaoKhoa extends Sach {
         lop = scanner.nextInt();
     }
     @Override
-    public void InSach() {
-        String header = String.format("%-12s%-12s%s-12s%s", "Ma sach", "Ten NXB", "Phan loai lop", "So luong");
-        String row = String.format("%-12s%-12s-12s%s", this.maSach, this.tenNXB,"Lop " + this.lop, this.soluong);
-        System.out.println(header);
-        System.out.println(row);
+    public List<String> InSach() {
+        return Arrays.asList(this.maSach, this.tenSach, this.tenNXB, String.valueOf(this.lop), String.valueOf(this.soluong));
 }
 }
