@@ -617,5 +617,4 @@ public class QuanLy {
     }
 }
 //@author Nhat Nam-
-// tay nguyen
-// nguyen tay
+//nam nguyen
