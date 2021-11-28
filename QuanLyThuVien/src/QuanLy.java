@@ -346,7 +346,8 @@ public class QuanLy {
                                         for(int k = 0; k < thuvien.size(); k++)
                                         {
                                             if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
-                                                row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
+                                                row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), 
+                                                thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
                                         }
                                     break;
                                 }
@@ -444,14 +445,15 @@ public class QuanLy {
                             String mathe = sc.next();
                             List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban", "Ngay muon", "Ngay tra");
                             List<List<String>> row = new ArrayList<List<String>>();
-                            for(int i = 0; i < ds.size(); i++){
+                            for(int i = 0; i < quahan.size(); i++){
                                 if(quahan.get(i).getMaThe().equals(mathe)){
                                     ArrayList<Sach> CacSach = quahan.get(i)._thuvien;
                                     for(int j = 0; j < CacSach.size(); j++)
                                         for(int k = 0; k < thuvien.size(); k++)
                                         {
                                             if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
-                                                row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), thuvien.get(k).getNhaXuatBan()));
+                                                row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), 
+                                                thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
                                         }
                                     break;
                                 }
