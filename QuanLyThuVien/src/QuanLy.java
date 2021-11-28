@@ -89,7 +89,6 @@ public class QuanLy {
                 }
                 break;
             case 2:
-                System.out.print("Co tat ca "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " loai sach:\n");
                 System.out.println("\t\t    ---------Thong tin SGK-----------");
                 if(listsachgiaokhoa.size()==0){
                     System.out.println("\n\t\t\t    Khong co sach!\n");
@@ -240,7 +239,7 @@ public class QuanLy {
             case 4:
                 System.out.println("\t\t    -------Thong tin nguoi muon--------");
                 if(ds.size()<=0){
-                    System.out.println("\n\t\t\t    Khong co nguoi muon!");
+                    System.out.println("\n\t\t\t   Khong co nguoi muon!");
                     System.out.print("Nhan Enter de tiep tuc!");
                     sc.nextLine();
                     sc.nextLine();
@@ -268,7 +267,7 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                     int chon3 = 0;
-                    System.out.println("1. Xem chi tiet. \n2. Thoat");
+                    System.out.println("1. Xem chi tiet cac sach muon. \n2. Thoat");
                     System.out.print("Ban chon: ");
                     chon3 = sc.nextInt(); 
                     switch(chon3) {
