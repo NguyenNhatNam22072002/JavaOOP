@@ -36,11 +36,12 @@ public class QuanLy {
 
 
 
+        
         ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
 
         int chon = 0;
         do{
-        System.out.print("\033[H\033[2J");  
+        System.out.print("\033[H\033[2J\n");  
         System.out.flush();
         System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Nhap sach.\n4. Dang ky hoi vien\n5. Muon sach.\n(Vui long ky xem thong tin sach truoc khi muon)\n");
         System.out.print("6. Danh sach nguoi muon.\n7. Danh nguoi muon qua thoi han\n8. Exit.\n");
