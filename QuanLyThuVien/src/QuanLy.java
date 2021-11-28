@@ -616,5 +616,3 @@ public class QuanLy {
         }
     }
 }
-//@author Nhat Nam-
-//nam nguyen
