@@ -41,7 +41,7 @@ public class QuanLy {
         do{
         System.out.print("\033[H\033[2J");  
         System.out.flush();
-        System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Dang ky hoi vien\n4. Muon sach.\n");
+        System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Dang ky hoi vien\n4. Muon sach.\n(Vui long ky xem thong tin sach truoc khi muon)\n");
         System.out.print("5. Danh sach nguoi muon.\n6. Danh nguoi muon qua thoi han\n7. Exit.\n");
         System.out.print("Ban chon: ");
         chon = sc.nextInt();
@@ -182,6 +182,7 @@ public class QuanLy {
                     int vitri = -1;
                     if(ds.size()<=0){
                         System.out.println("\n\t\t\t    Chua co hoi vien!");
+                        System.out.println("\n\t\t\t    Vui long dang ky!");
                         System.out.print("Nhan Enter de tiep tuc!");
                         sc.nextLine();
                         sc.nextLine();
@@ -250,11 +251,20 @@ public class QuanLy {
                             }
                         }
                     }
+                    int dem = ds.get(vitri)._nm.getSosach();
                     for(int i = 0; i<ds.get(vitri)._nm.getSosach();i++){
                         if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachKhac")){
                             for(int j = 0; j<listsachkhac.size();j++){
                                 if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachkhac.get(j).getMaSach())){
-                                    listsachkhac.get(j).soluong-=1;
+                                    if(listsachkhac.get(j).soluong > 0){
+                                        listsachkhac.get(j).soluong-=1;
+                                    }
+                                    else{
+                                        System.out.println("Het sach co ma '" + listsachkhac.get(j).getMaSach() + "' roi!!!");
+                                        ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                        ds.get(vitri).sosachdamuon-=1;
+                                        dem--;
+                                    }
                                 }
                             }
                             continue;
@@ -262,7 +272,15 @@ public class QuanLy {
                         if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
                                 if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
-                                    listsachgiaokhoa.get(j).soluong-=1;
+                                    if(listsachgiaokhoa.get(j).soluong > 0){
+                                        listsachgiaokhoa.get(j).soluong-=1;
+                                    }
+                                    else{
+                                        System.out.println("Het sach co ma '" + listsachgiaokhoa.get(j).getMaSach() + "' roi!!!");
+                                        ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                        ds.get(vitri).sosachdamuon-=1;
+                                        dem--;
+                                    }
                                 }
                             }
                             continue;
@@ -270,15 +288,25 @@ public class QuanLy {
                         if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachThamKhao")){
                             for(int j = 0; j<listsachthamkhao.size();j++){
                                 if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
-                                    listsachthamkhao.get(j).soluong-=1;
+                                    if(listsachthamkhao.get(j).soluong > 0){
+                                        listsachthamkhao.get(j).soluong-=1;
+                                    }
+                                    else{
+                                        System.out.println("Het sach co ma '" + listsachthamkhao.get(j).getMaSach() + "' roi!!!");
+                                        ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                        ds.get(vitri).sosachdamuon-=1;
+                                        dem--;
+                                    }
                                 }
                             }
                             continue;
                         }
                     }
-                    System.out.print("Nhap ngay tra: ");
-                    String ngaytra = sc.next();
-                    ds.get(vitri)._ngaytra.add(ngaytra);
+                    if(dem > 0){
+                        System.out.print("Nhap ngay tra: ");
+                        String ngaytra = sc.next();
+                        ds.get(vitri)._ngaytra.add(ngaytra);
+                    }
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 }
