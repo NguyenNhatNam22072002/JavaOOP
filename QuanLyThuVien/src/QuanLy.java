@@ -175,55 +175,76 @@ public class QuanLy {
                 sc.nextLine();
                 break;
             case 4:
-                int s;
+                int s = 0;
                 do
                 {
-                    System.out.println("\t\t    ----Nhap thong tin nguoi muon-----");
-                    TheThuVien t = new TheThuVien();
-                    t.NhapInfo();
-                    for(int i=0; i<t._nm.getSosach(); i++){
+                    System.out.println("\t\t    ----Nhap thong tin muon sach-----");
+                    int vitri = -1;
+                    if(ds.size()<=0){
+                        System.out.println("\n\t\t\t    Chua co hoi vien!");
+                        System.out.print("Nhan Enter de tiep tuc!");
+                        sc.nextLine();
+                        sc.nextLine();
+                    }
+                    else{
+                        System.out.print("Nhap ma the: ");
+                        String mathe = sc.next();
+                    do{
+                        for(int i = 0; i < ds.size(); i++){
+                            if(ds.get(i).getMaThe().equals(mathe)){
+                                vitri = i;
+                            }
+                        }
+                        if(vitri == -1){
+                            System.out.println("Ma the khong ton tai! Vui long nhap lai!");
+                            System.out.print("Nhap lai ma: ");
+                            mathe = sc.next();
+                        }
+                    }while(vitri == -1);
+                    ds.get(vitri).NhapInfo();
+                    for(int i=0; i<ds.get(vitri)._nm.getSosach(); i++){
                         boolean check = false;
-                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
+                        if(String.valueOf(ds.get(vitri)._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
+                                if(ds.get(vitri)._nm._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._nm._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                t._nm._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._nm._thuvien.get(i).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
+                        if(String.valueOf(ds.get(vitri)._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
+                                if(ds.get(vitri)._nm._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._nm._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                t._nm._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._nm._thuvien.get(i).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
+                        if(String.valueOf(ds.get(vitri)._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
+                                if(ds.get(vitri)._nm._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._nm._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                t._nm._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._nm._thuvien.get(i).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
@@ -231,16 +252,15 @@ public class QuanLy {
                     }
                     System.out.print("Nhap ngay tra: ");
                     String ngaytra = sc.next();
-                    t.setNgaytra(ngaytra);
-                    ds.add(t);
+                    ds.get(vitri).setNgaytra(ngaytra);
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
+                }
                 } while(s==1);
-                System.out.print("Nhan Enter de tiep tuc!");
-                sc.nextLine();
                 break;
             case 5:
                 System.out.println("\t\t\t\t    -------Thong tin nguoi muon--------");
+                ArrayList<Integer> vitri = new ArrayList<Integer>();
                 if(ds.size()<=0){
                     System.out.println("\n\t\t\t\t\t   Khong co nguoi muon!");
                     System.out.print("Nhan Enter de tiep tuc!");
@@ -253,6 +273,9 @@ public class QuanLy {
                         if(ds.get(i).getNgaytra() == null){
                             count+=1;
                         }
+                        else if(ds.get(i).getNgaytra() != null){
+                            vitri.add(i);
+                        }
                     }
                     if(count == ds.size()){
                         System.out.println("\n\t\t\t\t\t   Khong co nguoi muon!");
@@ -263,8 +286,8 @@ public class QuanLy {
                     else{
                 List<String> headersList = Arrays.asList("Ho va ten", "So dien thoai", "Dia chi", "Ma the", "Ngay muon", "Ngay tra");
                 List<List<String>> rowsList = new ArrayList<List<String>>();
-                for(int i=0; i<ds.size(); i++) {
-                    rowsList.add(ds.get(i).XuatInfo());
+                for(int i=0; i<vitri.size(); i++) {
+                    rowsList.add(ds.get(vitri.get(i)).XuatInfo());
                 }
                     Board board = new Board(105);
                     Table table = new Table(board, 105, headersList, rowsList);
@@ -336,6 +359,23 @@ public class QuanLy {
                 List<String> headersList = Arrays.asList("Ho va ten", "So dien thoai", "Dia chi", "Ma the", "Ngay muon", "Ngay tra");
                 List<List<String>> rowsList = new ArrayList<List<String>>();
                 ArrayList<TheThuVien> quahan = new ArrayList<TheThuVien>();
+                ArrayList<Integer> vitri1 = new ArrayList<Integer>();
+                int index = 0;
+                for(int i = 0; i < ds.size(); i++){
+                    if(ds.get(i).getNgaytra() != null){
+                        vitri1.add(i);
+                    }
+                    else{
+                        index+=1;
+                    }
+                }
+                if(index != 0){
+                    System.out.println("\n\t\t\t   Khong co nguoi muon qua han!");
+                    System.out.print("Nhan Enter de tiep tuc!");
+                    sc.nextLine();
+                    sc.nextLine();
+                    break;
+                }
                 for(int i = 0; i < ds.size(); i++)
                 {
                     Date date = Date.valueOf(ds.get(i).getNgaytra());
@@ -347,6 +387,9 @@ public class QuanLy {
                 }
                 if(rowsList.size()<= 0){
                     System.out.println("\n\t\t\t   Khong co nguoi muon qua han!");
+                    System.out.print("Nhan Enter de tiep tuc!");
+                    sc.nextLine();
+                    sc.nextLine();
                 }
                 else{
                     Board board = new Board(105);
@@ -412,7 +455,7 @@ public class QuanLy {
                 }
                 break;
             case 3:
-                System.out.println("-------Dang ky the thu vien--------");
+                System.out.println("\t\t    -------Dang ky the thu vien--------");
                 TheThuVien t = new TheThuVien();
                 t.Dangky();
                 for(int i = 0; i<ds.size(); i++){

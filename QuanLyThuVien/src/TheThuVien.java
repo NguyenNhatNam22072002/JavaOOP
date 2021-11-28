@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TheThuVien {
-    public NguoiMuon _nm;
+    public NguoiMuon _nm = new NguoiMuon();
     private String _Mathe;
     private Date _ngaymuon;
     private String _ngaytra;
@@ -40,7 +40,6 @@ public class TheThuVien {
         this._Mathe = mathe;
     }
     public void Dangky(){
-        this._nm = new NguoiMuon();
         this._nm.NhapInfo();
         System.out.print("Nhap ma the muon dang ky: ");
         this._Mathe = sc.nextLine();
