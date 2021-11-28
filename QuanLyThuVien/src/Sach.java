@@ -62,8 +62,6 @@ public abstract class Sach {
     public void MuonSach(){
         System.out.print("Nhap ma sach: ");
         maSach = scanner.nextLine();
-        System.out.print("Nhap so luong muon: ");
-        soluong = scanner.nextInt();
     }
     public abstract List<String> InSach();
 }
