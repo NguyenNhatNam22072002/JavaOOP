@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class NhanVien extends Person {
@@ -25,10 +27,8 @@ public class NhanVien extends Person {
         this.Diachi = sc.nextLine();
     }
     @Override
-    public void XuatInfo()
+    public List<String> XuatInfo()
     {
-        System.out.println("Ho va ten nhan vien: " + this.Hoten);
-        System.out.println("Sdt: " + this.Sdt);
-        System.out.println("Dia chi: " + this.Diachi);
+        return Arrays.asList(this.Hoten, this.Sdt, this.Diachi);
     }
 }
