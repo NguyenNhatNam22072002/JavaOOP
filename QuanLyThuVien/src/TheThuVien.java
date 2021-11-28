@@ -36,12 +36,17 @@ public class TheThuVien {
     public String getMaThe(){
         return this._Mathe;
     }
-    public void NhapInfo()
-    {
+    public void setMaThe(String mathe){
+        this._Mathe = mathe;
+    }
+    public void Dangky(){
         this._nm = new NguoiMuon();
         this._nm.NhapInfo();
-        System.out.print("Nhap ma the: ");
+        System.out.print("Nhap ma the muon dang ky: ");
         this._Mathe = sc.nextLine();
+    }
+    public void NhapInfo()
+    {
         System.out.print("Nhap so loai sach muon: ");
         this._nm._Sosach = sc.nextInt();
         for (int i = 0; i < this._nm.getSosach(); i++) {
