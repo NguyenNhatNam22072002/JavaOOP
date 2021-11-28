@@ -71,8 +71,6 @@ public class TheThuVien {
         long maToday = System.currentTimeMillis();   
         Date today = new Date(maToday);   
         this._ngaymuon = today;
-        System.out.print("Nhap ngay tra: ");
-        this._ngaytra = sc.nextLine();
     }
     public List<String> XuatInfo()
     {

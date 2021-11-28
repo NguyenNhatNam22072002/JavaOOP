@@ -8,42 +8,36 @@ import java.util.Scanner;
 
 public class QuanLy {
     public static void main(String[] args){
-        NhanVien Nam = new NhanVien("Nam", "0123456", "Dak Lak");
-        NhanVien Hai = new NhanVien("Hai", "0987654", "Dong Nai");
-        NhanVien Nguyen = new NhanVien("Nguyen", "013579", "Tay Nguyen");
+
+        NhanVien Nam = new NhanVien("Nhat Nam", "0123456", "Dak Lak");
+        NhanVien Hai = new NhanVien(" Hoang Hai", "0987654", "Dong Nai");
+        NhanVien Nguyen = new NhanVien("Tay Nguyen", "0135790", "Tay Nguyen");
+        
         ArrayList<NhanVien> listNV = new ArrayList<NhanVien>();
         listNV.add(Nam); listNV.add(Hai); listNV.add(Nguyen);
 
         SachGiaoKhoa sachToan = new SachGiaoKhoa("toan", "ToanCaoCap", "KimDong", 1, 13);
         SachKhac Conan = new SachKhac("truyen", "Conlan", "KimDong", 1, "tieuthuyet");
+        
         ArrayList<SachGiaoKhoa> listsachgiaokhoa = new ArrayList<SachGiaoKhoa>();
         ArrayList<SachThamKhao> listsachthamkhao = new ArrayList<SachThamKhao>();
+        
         ArrayList<SachKhac> listsachkhac = new ArrayList<SachKhac>();
         listsachkhac.add(Conan);    listsachgiaokhoa.add(sachToan);
         
         ArrayList<Sach> thuvien = new ArrayList<Sach>();
         thuvien.add(Conan);     thuvien.add(sachToan);
+        
         Scanner sc = new Scanner(System.in);
 
 
-        // long maToday1 = System.currentTimeMillis();   
-        // Date today1 = new Date(maToday1);  
-
-        // NguoiMuon _Nam = new NguoiMuon("Nam", "0355188464", "dsdsdasdsad");
-        // NguoiMuon _Hai = new NguoiMuon("Hai", "0355188464", "dsdsdasdsad");
-        // NguoiMuon _Nguyen = new NguoiMuon("Nguyen", "0355188464", "dsdsdasdsad");
-
-        // TheThuVien nam = new TheThuVien(_Nam, "123", today1, "2021-10-11");
-        // TheThuVien haiquayxe = new TheThuVien(_Hai, "456", today1, "2021-12-11");
-        // TheThuVien nguyen = new TheThuVien(_Nguyen, "789", today1, "2021-10-12");
 
         ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
-        // ds.add(nam); ds.add(haiquayxe); ds.add(nguyen); 
 
         int chon = 0;
         do{
         System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+        System.out.flush();
         System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Muon sach.\n");
         System.out.print("4. Danh sach nguoi muon.\n5. Danh nguoi muon qua thoi han\n6. Exit.\n");
         System.out.print("Ban chon: ");
@@ -182,24 +176,68 @@ public class QuanLy {
                 int s;
                 do
                 {
-                    System.out.println("Nhap thong tin nguoi muon");
+                    System.out.println("\t\t    ----Nhap thong tin nguoi muon-----");
                     TheThuVien t = new TheThuVien();
                     t.NhapInfo();
-                    
+                    for(int i=0; i<t._nm.getSosach(); i++){
+                        int check = 0;
+                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
+                            for(int j = 0; j<listsachgiaokhoa.size();j++){
+                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
+                                    check = 1;
+                                }
+                            }
+                            if(check != 1){
+                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
+                                System.out.print("Vui long nhap lai ma sach: ");
+                                String masach = sc.next();
+                                t._nm._thuvien.get(i).setMaSach(masach);
+                                i-=1;
+                                continue;
+                            }
+                        }
+                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
+                            for(int j = 0; j<listsachgiaokhoa.size();j++){
+                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
+                                    check = 1;
+                                }
+                            }
+                            if(check != 1){
+                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
+                                System.out.print("Vui long nhap lai ma sach: ");
+                                String masach = sc.next();
+                                t._nm._thuvien.get(i).setMaSach(masach);
+                                i-=1;
+                                continue;
+                            }
+                        }
+                        if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
+                            for(int j = 0; j<listsachgiaokhoa.size();j++){
+                                if(t._nm._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
+                                    check = 1;
+                                }
+                            }
+                            if(check != 1){
+                                System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
+                                System.out.print("Vui long nhap lai ma sach: ");
+                                String masach = sc.next();
+                                t._nm._thuvien.get(i).setMaSach(masach);
+                                i-=1;
+                                continue;
+                            }
+                        }
+                    }
+                    System.out.print("Nhap ngay tra: ");
+                    String ngaytra = sc.next();
+                    t.setNgaytra(ngaytra);
                     ds.add(t);
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
                 System.out.print("Nhan Enter de tiep tuc!");
                 sc.nextLine();
-                sc.nextLine();
                 break;
             case 4:
-                // for(int i = 0; i < ds.size(); i++)
-                // {
-                //     System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
-                //     ds.get(i).XuatInfo();
-                // }
                 System.out.println("\t\t    -------Thong tin nguoi muon--------");
                 if(ds.size()<=0){
                     System.out.println("\n\t\t\t    Khong co nguoi muon!");
@@ -230,13 +268,13 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                     int chon3 = 0;
-                    System.out.println("1.Xem chi tiet. \n2. Thoat");
+                    System.out.println("1. Xem chi tiet. \n2. Thoat");
+                    System.out.print("Ban chon: ");
                     chon3 = sc.nextInt(); 
                     switch(chon3) {
                         case 1:
-                            System.out.print("Nhap ma the: ");
-                            sc.nextLine();
-                            String mathe = sc.nextLine();
+                            System.out.print("\tNhap ma the: ");
+                            String mathe = sc.next();
                             List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban");
                             List<List<String>> row = new ArrayList<List<String>>();
                             for(int i = 0; i < ds.size(); i++){
@@ -291,8 +329,22 @@ public class QuanLy {
                 sc.nextLine();
                 sc.nextLine();
                 break;
+            default:
+                System.out.println("\t\tTam biet!!!!!");
+                wait(2000);
+                break;
         }
     }while(chon!=6);
         sc.close();
+    }
+    public static void wait(int ms){
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 }
