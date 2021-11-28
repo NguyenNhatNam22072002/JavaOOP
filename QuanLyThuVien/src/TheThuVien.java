@@ -1,5 +1,4 @@
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -47,7 +46,7 @@ public class TheThuVien {
         this._nm._Sosach = sc.nextInt();
         for (int i = 0; i < this._nm.getSosach(); i++) {
             int number;
-            System.out.println("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
+            System.out.print("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
             number = sc.nextInt();
             Sach sach;
             switch (number) {
@@ -88,11 +87,6 @@ public class TheThuVien {
     //         System.out.print("+Ma sach thu " + (i+1) + " la:" + Cacsach.get(i).getMaSach());
     //         System.out.println();
     //     }
-        String tenSachMuon = "";
-        ArrayList<Sach> Cacsach = this._nm._thuvien; 
-        for(int i = 0; i < this._nm.getSosach(); i++){
-            tenSachMuon += String.valueOf(Cacsach.get(i).getMaSach()) + "\n";
-        }
         return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe, 
         String.valueOf(this._ngaymuon), this._ngaytra);
     }

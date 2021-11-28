@@ -51,12 +51,12 @@ public class QuanLy {
         switch(chon){
             case 1:
                 int chon2;
-                System.out.print("1. In nhan vien.\n2. Them nhan vien\n"); //2 chức năng của nhân viên 
-                System.out.print("Ban chon: ");
+                System.out.print("\t1. In nhan vien.\n\t2. Them nhan vien\n"); //2 chức năng của nhân viên 
+                System.out.print("\tBan chon: ");
                 chon2 = sc.nextInt();
                 switch(chon2){
                     case 1:
-                        System.out.print("Co tat ca " + listNV.size() + " nhan vien:\n");
+                    System.out.println("\t\t    -------Thong tin nhan vien--------");
                         List<String> headersList = Arrays.asList("Ho ten", "So dien thoai", "Dia chi");
                         List<List<String>> rowsList = new ArrayList<List<String>>();
                         for(int i = 0; i<listNV.size();i++){
@@ -75,26 +75,27 @@ public class QuanLy {
                         board.build();
                         String tableString = board.getPreview();
                         System.out.println(tableString);
-                        System.out.println("Nhan Enter de tiep tuc!");
+                        System.out.print("Nhan Enter de tiep tuc!");
                         sc.nextLine();
                         sc.nextLine();
                         break;
                     case 2:
-                        System.out.print("So nhan vien can them: ");
+                        System.out.print("\t\tSo nhan vien can them: ");
                         int nv = sc.nextInt();
                         for(int i=0; i<nv;i++){
+                            System.out.println("\t\t    ----Nhap thong tin nhan vien thu "+ (i + 1) +"-----");
                             NhanVien newNV = new NhanVien();
                             newNV.NhapInfo();
                             listNV.add(newNV);
                         }
-                        System.out.println("Nhan Enter de tiep tuc!");
+                        System.out.print("Nhan Enter de tiep tuc!");
                         sc.nextLine();
                         sc.nextLine();
                         break;
                 }
                 break;
             case 2:
-                System.out.print("Co tat ca"+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " sach:\n");
+                System.out.print("Co tat ca "+ (listsachgiaokhoa.size()+listsachkhac.size()+listsachthamkhao.size()) + " loai sach:\n");
                 System.out.println("\t\t    ---------Thong tin SGK-----------");
                 if(listsachgiaokhoa.size()==0){
                     System.out.println("\n\t\t\t    Khong co sach!\n");
@@ -173,7 +174,7 @@ public class QuanLy {
                     String tableString = board.getPreview();
                     System.out.println(tableString);
                 }
-                System.out.println("Nhan Enter de tiep tuc!");
+                System.out.print("Nhan Enter de tiep tuc!");
                 sc.nextLine();
                 sc.nextLine();
                 break;
@@ -184,11 +185,12 @@ public class QuanLy {
                     System.out.println("Nhap thong tin nguoi muon");
                     TheThuVien t = new TheThuVien();
                     t.NhapInfo();
+                    
                     ds.add(t);
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 } while(s==1);
-                System.out.println("Nhan Enter de tiep tuc!");
+                System.out.print("Nhan Enter de tiep tuc!");
                 sc.nextLine();
                 sc.nextLine();
                 break;
@@ -198,71 +200,80 @@ public class QuanLy {
                 //     System.out.println("Thong tin nguoi muon thu " + (i+1) + ":");
                 //     ds.get(i).XuatInfo();
                 // }
+                System.out.println("\t\t    -------Thong tin nguoi muon--------");
+                if(ds.size()<=0){
+                    System.out.println("\n\t\t\t    Khong co nguoi muon!");
+                    System.out.print("Nhan Enter de tiep tuc!");
+                    sc.nextLine();
+                    sc.nextLine();
+                }
+                else{
                 List<String> headersList = Arrays.asList("Ho va ten", "So dien thoai", "Dia chi", "Ma the", "Ngay muon", "Ngay tra");
                 List<List<String>> rowsList = new ArrayList<List<String>>();
                 for(int i=0; i<ds.size(); i++) {
                     rowsList.add(ds.get(i).XuatInfo());
                 }
-                Board board = new Board(105);
-                Table table = new Table(board, 105, headersList, rowsList);
-                List<Integer> colAlignList = Arrays.asList(
-                Block.DATA_CENTER, 
-                Block.DATA_CENTER, 
-                Block.DATA_CENTER, 
-                Block.DATA_CENTER, 
-                Block.DATA_CENTER,
-                Block.DATA_CENTER);
-                List<Integer> colWidthsListEdited = Arrays.asList(20, 15, 33, 10, 10, 10);
-                table.setColAlignsList(colAlignList).setColWidthsList(colWidthsListEdited).setGridMode(Table.GRID_FULL);
-                Block tableBlock = table.tableToBlocks();
-                board.setInitialBlock(tableBlock);
-                board.build();
-                String tableString = board.getPreview();
-                System.out.println(tableString);
-                int chon3 = 0;
-                System.out.println("1.Xem chi tiet. \n2. Thoat");
-                chon3 = sc.nextInt(); 
-                switch(chon3) {
-                    case 1:
-                        System.out.print("Nhap ma the: ");
-                        sc.nextLine();
-                        String mathe = sc.nextLine();
-                        List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban");
-                        List<List<String>> row = new ArrayList<List<String>>();
-                        for(int i = 0; i < ds.size(); i++){
-                            if(ds.get(i).getMaThe().equals(mathe)){
-                                ArrayList<Sach> CacSach = ds.get(i)._nm._thuvien;
-                                for(int j = 0; j < CacSach.size(); j++)
-                                    for(int k = 0; k < thuvien.size(); k++)
-                                    {
-                                        if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
-                                            row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), thuvien.get(k).getNhaXuatBan()));
-                                    }
-                                break;
+                    Board board = new Board(105);
+                    Table table = new Table(board, 105, headersList, rowsList);
+                    List<Integer> colAlignList = Arrays.asList(
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER,
+                    Block.DATA_CENTER,
+                    Block.DATA_CENTER);
+                    List<Integer> colWidthsListEdited = Arrays.asList(20, 15, 33, 10, 10, 10);
+                    table.setColAlignsList(colAlignList).setColWidthsList(colWidthsListEdited).setGridMode(Table.GRID_FULL);
+                    Block tableBlock = table.tableToBlocks();
+                    board.setInitialBlock(tableBlock);
+                    board.build();
+                    String tableString = board.getPreview();
+                    System.out.println(tableString);
+                    int chon3 = 0;
+                    System.out.println("1.Xem chi tiet. \n2. Thoat");
+                    chon3 = sc.nextInt(); 
+                    switch(chon3) {
+                        case 1:
+                            System.out.print("Nhap ma the: ");
+                            sc.nextLine();
+                            String mathe = sc.nextLine();
+                            List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban");
+                            List<List<String>> row = new ArrayList<List<String>>();
+                            for(int i = 0; i < ds.size(); i++){
+                                if(ds.get(i).getMaThe().equals(mathe)){
+                                    ArrayList<Sach> CacSach = ds.get(i)._nm._thuvien;
+                                    for(int j = 0; j < CacSach.size(); j++)
+                                        for(int k = 0; k < thuvien.size(); k++)
+                                        {
+                                            if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
+                                                row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), thuvien.get(k).getNhaXuatBan()));
+                                        }
+                                    break;
+                                }
                             }
-                        }
-                        Board board1 = new Board(72);
-                        Table table1 = new Table(board1, 72, header, row);
-                        List<Integer> colAlignList1 = Arrays.asList(
-                        Block.DATA_CENTER,
-                        Block.DATA_CENTER,
-                        Block.DATA_CENTER);
-                        List<Integer> colWidthsListEdited1 = Arrays.asList(20, 15, 33);
-                        table1.setColAlignsList(colAlignList1).setColWidthsList(colWidthsListEdited1).setGridMode(Table.GRID_FULL);
-                        Block tableBlock1 = table1.tableToBlocks();
-                        board1.setInitialBlock(tableBlock1);
-                        board1.build();
-                        String tableString1 = board1.getPreview();
-                        System.out.println(tableString1);
-                        System.out.println("Nhan Enter de tiep tuc!");
-                        sc.nextLine();
-                        sc.nextLine();
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
+                            Board board1 = new Board(72);
+                            Table table1 = new Table(board1, 72, header, row);
+                            List<Integer> colAlignList1 = Arrays.asList(
+                            Block.DATA_CENTER,
+                            Block.DATA_CENTER,
+                            Block.DATA_CENTER);
+                            List<Integer> colWidthsListEdited1 = Arrays.asList(20, 15, 33);
+                            table1.setColAlignsList(colAlignList1).setColWidthsList(colWidthsListEdited1).setGridMode(Table.GRID_FULL);
+                            Block tableBlock1 = table1.tableToBlocks();
+                            board1.setInitialBlock(tableBlock1);
+                            board1.build();
+                            String tableString1 = board1.getPreview();
+                            System.out.println(tableString1);
+                            System.out.print("Nhan Enter de tiep tuc!");
+                            sc.nextLine();
+                            sc.nextLine();
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            break;
                 }
+            }
                 break;
             case 5:
                 long maToday = System.currentTimeMillis();   
@@ -276,7 +287,7 @@ public class QuanLy {
                         ds.get(i).XuatInfo();
                     }
                 }
-                System.out.println("Nhan Enter de tiep tuc!");
+                System.out.print("Nhan Enter de tiep tuc!");
                 sc.nextLine();
                 sc.nextLine();
                 break;
