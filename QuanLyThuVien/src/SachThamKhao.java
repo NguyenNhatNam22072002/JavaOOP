@@ -19,6 +19,7 @@ public class SachThamKhao extends Sach {
     public void NhapSach(){
         super.NhapSach();
         System.out.print("Nhap loai cua sach: ");
+        scanner.nextLine();
         loai = scanner.nextLine();
     }
     @Override

@@ -16,9 +16,10 @@ public class SachGiaoKhoa extends Sach {
     public int getLop(){
         return lop;
     }
-    public void nhapSach() {
+    public void NhapSach() {
         super.NhapSach();
         System.out.print("Nhap lop cua sach: ");
+        scanner.nextLine();
         lop = scanner.nextInt();
     }
     @Override

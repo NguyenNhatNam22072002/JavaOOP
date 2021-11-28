@@ -42,8 +42,8 @@ public class QuanLy {
         do{
         System.out.print("\033[H\033[2J");  
         System.out.flush();
-        System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Dang ky hoi vien\n4. Muon sach.\n(Vui long ky xem thong tin sach truoc khi muon)\n");
-        System.out.print("5. Danh sach nguoi muon.\n6. Danh nguoi muon qua thoi han\n7. Exit.\n");
+        System.out.print("1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Nhap sach.\n4. Dang ky hoi vien\n5. Muon sach.\n(Vui long ky xem thong tin sach truoc khi muon)\n");
+        System.out.print("6. Danh sach nguoi muon.\n7. Danh nguoi muon qua thoi han\n8. Exit.\n");
         System.out.print("Ban chon: ");
         chon = sc.nextInt();
         switch(chon){
@@ -175,7 +175,7 @@ public class QuanLy {
                 sc.nextLine();
                 sc.nextLine();
                 break;
-            case 4:
+            case 5:
                 int s = 0;
                 do
                 {
@@ -315,7 +315,7 @@ public class QuanLy {
                 }
                 } while(s==1);
                 break;
-            case 5:
+            case 6:
                 System.out.println("\t\t\t\t    -------Thong tin nguoi muon--------");
                 ArrayList<Integer> vitri = new ArrayList<Integer>();
                 if(ds.size()<=0){
@@ -410,7 +410,7 @@ public class QuanLy {
                 }
             }
                 break;
-            case 6:
+            case 7:
                 long maToday = System.currentTimeMillis();   
                 Date today = new Date(maToday);
                 System.out.println("\t\t    -------Thong tin nguoi muon qua han--------");
@@ -523,7 +523,7 @@ public class QuanLy {
                     }
                 }
                 break;
-            case 3:
+            case 4:
                 System.out.println("\t\t    -------Dang ky the thu vien--------");
                 TheThuVien t = new TheThuVien();
                 t.Dangky();
@@ -542,12 +542,66 @@ public class QuanLy {
                 sc.nextLine();
                 sc.nextLine();
                 break;
+            case 3:
+                System.out.println("\t\t    -------Nhap them sach-------");
+                int nhap;
+                do{
+                    System.out.print("Loai sach muon them (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
+                    int number = sc.nextInt();
+                    switch(number){
+                        case 1:
+                        sc.nextLine();
+                        SachGiaoKhoa sachgk = new SachGiaoKhoa();
+                        sachgk.NhapSach();
+                        Boolean check1 = false;
+                        for(int i = 0; i < listsachgiaokhoa.size(); i++)
+                            if(sachgk.getMaSach().equals(listsachgiaokhoa.get(i).getMaSach()))
+                                {
+                                    listsachgiaokhoa.get(i).setSoLuong(listsachgiaokhoa.get(i).getSoLuong() + sachgk.getSoLuong());
+                                    check1 = true;
+                                    break;
+                                }
+                        if(check1 == false) listsachgiaokhoa.add(sachgk);
+                        break;
+                        case 2:
+                        sc.nextLine();
+                        SachThamKhao sachtk = new SachThamKhao();
+                        sachtk.NhapSach();
+                        Boolean check2 = false;
+                        for(int i = 0; i < listsachthamkhao.size(); i++)
+                            if(sachtk.getMaSach().equals(listsachthamkhao.get(i).getMaSach()))
+                                {
+                                    listsachthamkhao.get(i).setSoLuong(listsachthamkhao.get(i).getSoLuong() + sachtk.getSoLuong());
+                                    check2 = true;
+                                    break;
+                                }
+                        if(check2 == false) listsachthamkhao.add(sachtk);
+                        break;
+                        default:
+                        sc.nextLine();
+                        SachKhac sachkhac = new SachKhac();
+                        sachkhac.NhapSach();
+                        Boolean check3 = false;
+                        for(int i = 0; i < listsachkhac.size(); i++)
+                            if(sachkhac.getMaSach().equals(listsachkhac.get(i).getMaSach()))
+                                {
+                                    listsachkhac.get(i).setSoLuong(listsachkhac.get(i).getSoLuong() + sachkhac.getSoLuong());
+                                    check3 = true;
+                                    break;
+                                }
+                        if(check3 == false) listsachkhac.add(sachkhac);
+                        break;
+                        }
+                    System.out.print("Ban co muon nhap sach nua khong (1-Yes/2-No):");
+                    nhap = sc.nextInt();
+                }while(nhap == 1);
+                break;
             default:
                 System.out.println("\t\tTam biet!!!!!");
                 wait(1000);
                 break;
         }
-    }while(chon<7);
+    }while(chon < 8);
         sc.close();
     }
     public static void wait(int ms){
