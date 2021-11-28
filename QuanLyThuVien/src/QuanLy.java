@@ -182,14 +182,14 @@ public class QuanLy {
                     TheThuVien t = new TheThuVien();
                     t.NhapInfo();
                     for(int i=0; i<t._nm.getSosach(); i++){
-                        int check = 0;
+                        boolean check = false;
                         if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
                                 if(t._nm._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
-                                    check = 1;
+                                    check = true;
                                 }
                             }
-                            if(check != 1){
+                            if(!check){
                                 System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
@@ -201,10 +201,10 @@ public class QuanLy {
                         if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
                                 if(t._nm._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
-                                    check = 1;
+                                    check = true;
                                 }
                             }
-                            if(check != 1){
+                            if(!check){
                                 System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
@@ -216,10 +216,10 @@ public class QuanLy {
                         if(String.valueOf(t._nm._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
                                 if(t._nm._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
-                                    check = 1;
+                                    check = true;
                                 }
                             }
-                            if(check != 1){
+                            if(!check){
                                 System.out.println("Sach co ma '"+ t._nm._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
