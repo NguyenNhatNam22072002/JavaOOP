@@ -248,6 +248,19 @@ public class QuanLy {
                     sc.nextLine();
                 }
                 else{
+                    int count = 0;
+                    for(int i=0; i<ds.size(); i++){
+                        if(ds.get(i).getNgaytra() == null){
+                            count+=1;
+                        }
+                    }
+                    if(count == ds.size()){
+                        System.out.println("\n\t\t\t\t\t   Khong co nguoi muon!");
+                        System.out.print("Nhan Enter de tiep tuc!");
+                        sc.nextLine();
+                        sc.nextLine();
+                    }
+                    else{
                 List<String> headersList = Arrays.asList("Ho va ten", "So dien thoai", "Dia chi", "Ma the", "Ngay muon", "Ngay tra");
                 List<List<String>> rowsList = new ArrayList<List<String>>();
                 for(int i=0; i<ds.size(); i++) {
@@ -314,6 +327,7 @@ public class QuanLy {
                             break;
                     }
                 }
+            }
                 break;
             case 6:
                 long maToday = System.currentTimeMillis();   
