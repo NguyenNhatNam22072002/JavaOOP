@@ -1,47 +1,40 @@
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class TheThuVien {
-    public NguoiMuon _nm;
+    public NguoiMuon _nm = new NguoiMuon();
     private String _Mathe;
-    private Date _ngaymuon;
-    private String _ngaytra;
+    public ArrayList<Date> _ngaymuon = new ArrayList<Date>();
+    public ArrayList<String> _ngaytra = new ArrayList<String>();
     Scanner sc = new Scanner(System.in);
+    public ArrayList<Sach> _thuvien = new ArrayList<Sach>();
+    public int sosachdamuon = 0;
     
     public TheThuVien() 
     {
         
     }
-    public TheThuVien(NguoiMuon nm, String mathe, Date ngaymuon, String ngaytra)
+    public TheThuVien(NguoiMuon nm, String mathe)
     {
         this._nm = nm;
         this._Mathe = mathe;
-        this._ngaymuon = ngaymuon;
-        this._ngaytra = ngaytra;
-    }
-    public Date getNgaymuon()
-    {
-        return this._ngaymuon;
-    }
-    public String getNgaytra()
-    {
-        return this._ngaytra;
-    }
-    public void setNgaytra(String ngaytra)
-    {
-        this._ngaytra = ngaytra;
     }
     public String getMaThe(){
         return this._Mathe;
     }
+    public void setMaThe(String mathe){
+        this._Mathe = mathe;
+    }
+    public void Dangky(){
+        this._nm.NhapInfo();
+        System.out.print("Nhap ma the muon dang ky: ");
+        this._Mathe = sc.nextLine();
+    }
     public void NhapInfo()
     {
-        this._nm = new NguoiMuon();
-        this._nm.NhapInfo();
-        System.out.print("Nhap ma the: ");
-        this._Mathe = sc.nextLine();
         System.out.print("Nhap so loai sach muon: ");
         this._nm._Sosach = sc.nextInt();
         for (int i = 0; i < this._nm.getSosach(); i++) {
@@ -66,11 +59,12 @@ public class TheThuVien {
                     sach.MuonSach();
                     break;
             }
-            this._nm._thuvien.add(sach);
+            this._thuvien.add(sach);
+            long maToday = System.currentTimeMillis();   
+            Date today = new Date(maToday);   
+            this._ngaymuon.add(today);
         }
-        long maToday = System.currentTimeMillis();   
-        Date today = new Date(maToday);   
-        this._ngaymuon = today;
+        sosachdamuon += this._nm.getSosach();
     }
     public List<String> XuatInfo()
     {
@@ -85,7 +79,6 @@ public class TheThuVien {
     //         System.out.print("+Ma sach thu " + (i+1) + " la:" + Cacsach.get(i).getMaSach());
     //         System.out.println();
     //     }
-        return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe, 
-        String.valueOf(this._ngaymuon), this._ngaytra);
+        return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe);
     }
 }

@@ -1,12 +1,10 @@
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
     public int _Sosach;
-    public ArrayList<Sach> _thuvien = new ArrayList<Sach>();
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() 

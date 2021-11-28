@@ -6,8 +6,8 @@ public class SachThamKhao extends Sach {
     public SachThamKhao() {
         super();
     }
-    public SachThamKhao(String loai) {
-        super();
+    public SachThamKhao(String maSach, String tenSach,String nhaXuatBan, int soLuong, String loai) {
+        super(maSach,tenSach,nhaXuatBan,soLuong);
         this.loai = loai;
     }
     public void setLoai(String loai) {
@@ -19,6 +19,7 @@ public class SachThamKhao extends Sach {
     public void NhapSach(){
         super.NhapSach();
         System.out.print("Nhap loai cua sach: ");
+        scanner.nextLine();
         loai = scanner.nextLine();
     }
     @Override
