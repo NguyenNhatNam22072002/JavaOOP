@@ -60,11 +60,11 @@ public class TheThuVien {
                     break;
             }
             this._thuvien.add(sach);
+            long maToday = System.currentTimeMillis();   
+            Date today = new Date(maToday);   
+            this._ngaymuon.add(today);
         }
         sosachdamuon += this._nm.getSosach();
-        long maToday = System.currentTimeMillis();   
-        Date today = new Date(maToday);   
-        this._ngaymuon.add(today);
     }
     public List<String> XuatInfo()
     {

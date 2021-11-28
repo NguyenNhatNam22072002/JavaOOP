@@ -306,7 +306,9 @@ public class QuanLy {
                     if(dem > 0){
                         System.out.print("Nhap ngay tra: ");
                         String ngaytra = sc.next();
-                        ds.get(vitri)._ngaytra.add(ngaytra);
+                        for(int i=0; i<dem; i++){
+                            ds.get(vitri)._ngaytra.add(ngaytra);
+                        }
                     }
                     System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
                     s = sc.nextInt();
@@ -376,7 +378,7 @@ public class QuanLy {
                                         {
                                             if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
                                                 row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), 
-                                                thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
+                                                thuvien.get(k).getNhaXuatBan(), String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
                                         }
                                     break;
                                 }
@@ -436,9 +438,17 @@ public class QuanLy {
                 {
                     for(int j = 0; j < ds.get(vitri1.get(i))._ngaytra.size(); j++){
                         Date date = Date.valueOf(ds.get(vitri1.get(i))._ngaytra.get(j));
-                        if(today.compareTo(date) > 0) 
+                        if(today.compareTo(date) > 0)
                         {
-                            rowsList.add(ds.get(i).XuatInfo());
+                            boolean check = false;
+                            for(int k = 0; k < rowsList.size(); k++){
+                                if(rowsList.get(k).equals(ds.get(i).XuatInfo())){
+                                    check = true;
+                                }
+                            }
+                            if(check == false){
+                                rowsList.add(ds.get(i).XuatInfo());
+                            }
                             quahan.add(ds.get(i));
                         }
                     }
@@ -454,7 +464,7 @@ public class QuanLy {
                     Table table = new Table(board, 83, headersList, rowsList);
                     List<Integer> colAlignList = Arrays.asList(
                     Block.DATA_CENTER, 
-                    Block.DATA_CENTER, 
+                    Block.DATA_CENTER,
                     Block.DATA_CENTER, 
                     Block.DATA_CENTER);
                     List<Integer> colWidthsListEdited = Arrays.asList(20, 15, 33, 10);
@@ -494,7 +504,7 @@ public class QuanLy {
                             Block.DATA_CENTER,
                             Block.DATA_CENTER,
                             Block.DATA_CENTER,
-                            Block.BLOCK_CENTRE);
+                            Block.DATA_CENTER);
                             List<Integer> colWidthsListEdited1 = Arrays.asList(20, 19, 29, 10, 10);
                             table1.setColAlignsList(colAlignList1).setColWidthsList(colWidthsListEdited1).setGridMode(Table.GRID_FULL);
                             Block tableBlock1 = table1.tableToBlocks();
