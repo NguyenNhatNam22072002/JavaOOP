@@ -35,8 +35,6 @@ public class QuanLy {
         Scanner sc = new Scanner(System.in);
 
 
-
-        
         ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
 
         int chon = 0;
