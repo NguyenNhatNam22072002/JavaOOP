@@ -475,7 +475,7 @@ public class QuanLy {
                 break;
             default:
                 System.out.println("\t\tTam biet!!!!!");
-                wait(2000);
+                wait(1000);
                 break;
         }
     }while(chon<7);
