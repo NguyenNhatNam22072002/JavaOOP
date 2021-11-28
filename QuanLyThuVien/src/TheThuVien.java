@@ -42,7 +42,7 @@ public class TheThuVien {
         this._nm.NhapInfo();
         System.out.print("Nhap ma the: ");
         this._Mathe = sc.nextLine();
-        System.out.print("Nhap so sach muon: ");
+        System.out.print("Nhap so loai sach muon: ");
         this._nm._Sosach = sc.nextInt();
         for (int i = 0; i < this._nm.getSosach(); i++) {
             int number;
