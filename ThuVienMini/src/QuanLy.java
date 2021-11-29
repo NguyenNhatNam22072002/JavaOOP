@@ -210,47 +210,47 @@ public class QuanLy {
                     ds.get(vitri).NhapInfo();
                     for(int i=0; i<ds.get(vitri)._nm.getSosach(); i++){
                         boolean check = false;
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong SGK khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachThamKhao")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong sach tham khao khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachKhac")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachkhac.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong sach khac khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
