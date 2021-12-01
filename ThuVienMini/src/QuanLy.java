@@ -4,8 +4,11 @@
 * @author taynguyen0206
 */
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -207,47 +210,47 @@ public class QuanLy {
                     ds.get(vitri).NhapInfo();
                     for(int i=0; i<ds.get(vitri)._nm.getSosach(); i++){
                         boolean check = false;
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachGiaoKhoa")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachgiaokhoa.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong SGK khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong SGK khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachThamKhao")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachThamKhao")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachthamkhao.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong sach tham khao khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong sach tham khao khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
                         }
-                        if(String.valueOf(ds.get(vitri)._thuvien.get(i).getClass()).equalsIgnoreCase("class SachKhac")){
+                        if(String.valueOf(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass()).equalsIgnoreCase("class SachKhac")){
                             for(int j = 0; j<listsachgiaokhoa.size();j++){
-                                if(ds.get(vitri)._thuvien.get(i).getMaSach().equals(listsachkhac.get(j).getMaSach())){
+                                if(ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach().equals(listsachkhac.get(j).getMaSach())){
                                     check = true;
                                 }
                             }
                             if(!check){
-                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(i).getMaSach() + "' trong sach khac khong ton tai!");
+                                System.out.println("Sach co ma '"+ ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach() + "' trong sach khac khong ton tai!");
                                 System.out.print("Vui long nhap lai ma sach: ");
                                 String masach = sc.next();
-                                ds.get(vitri)._thuvien.get(i).setMaSach(masach);
+                                ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).setMaSach(masach);
                                 i-=1;
                                 continue;
                             }
@@ -305,13 +308,15 @@ public class QuanLy {
                         }
                     }
                     if(dem > 0){
-                        System.out.print("Nhap ngay tra: ");
-                        String ngaytra = sc.next();
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, +7);
+                        String ngaytra = String.valueOf(dateFormat.format(cal.getTime()));
                         for(int i=0; i<dem; i++){
                             ds.get(vitri)._ngaytra.add(ngaytra);
                         }
                     }
-                    System.out.print("Co muon nhap nua khong (1-Yes/2-No): ");
+                    System.out.print("Co muon muon tiep khong (1-Yes/2-No): ");
                     s = sc.nextInt();
                 }
                 } while(s==1);
@@ -483,7 +488,7 @@ public class QuanLy {
                         case 1:
                             System.out.print("\tNhap ma the: ");
                             String mathe = sc.next();
-                            List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban", "Ngay muon", "Ngay tra");
+                            List<String> header = Arrays.asList("Ma sach", "Ten Sach", "Ten nha xuat ban", "Ngay muon", "Ngay tra", "Ngay hien tai");
                             List<List<String>> row = new ArrayList<List<String>>();
                             for(int i = 0; i < quahan.size(); i++){
                                 if(quahan.get(i).getMaThe().equals(mathe)){
@@ -493,20 +498,21 @@ public class QuanLy {
                                         {
                                             if(CacSach.get(j).getMaSach().equals(thuvien.get(k).getMaSach()))
                                                 row.add(Arrays.asList(thuvien.get(k).getMaSach(), thuvien.get(k).getTenSach(), 
-                                                thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j)));
+                                                thuvien.get(k).getNhaXuatBan(),String.valueOf(ds.get(i)._ngaymuon.get(j)), ds.get(i)._ngaytra.get(j), String.valueOf(today)));
                                         }
                                     break;
                                 }
                             }
-                            Board board1 = new Board(94);
-                            Table table1 = new Table(board1, 94, header, row);
+                            Board board1 = new Board(114);
+                            Table table1 = new Table(board1, 114, header, row);
                             List<Integer> colAlignList1 = Arrays.asList(
                             Block.DATA_CENTER,
                             Block.DATA_CENTER,
                             Block.DATA_CENTER,
                             Block.DATA_CENTER,
+                            Block.DATA_CENTER,
                             Block.DATA_CENTER);
-                            List<Integer> colWidthsListEdited1 = Arrays.asList(20, 19, 29, 10, 10);
+                            List<Integer> colWidthsListEdited1 = Arrays.asList(20, 19, 29, 12, 12, 15);
                             table1.setColAlignsList(colAlignList1).setColWidthsList(colWidthsListEdited1).setGridMode(Table.GRID_FULL);
                             Block tableBlock1 = table1.tableToBlocks();
                             board1.setInitialBlock(tableBlock1);
@@ -616,6 +622,3 @@ public class QuanLy {
         }
     }
 }
-//@author Nhat Nam-
-// tay nguyen
-// nguyen tay
