@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * @author Thedath Oudarya
  */
 public class Board {
-    
+
     protected boolean showBlockIndex;
 
     protected int boardWidth;
@@ -47,7 +46,7 @@ public class Board {
 
     public void showBlockIndex(boolean showBlockIndex) {
         this.showBlockIndex = showBlockIndex;
-    }        
+    }
 
     public Board appendTableTo(int appendableBlockIndex, int appendableDirection, Table table) {
         Block tableBlock = table.tableToBlocks();
@@ -137,7 +136,7 @@ public class Board {
 
     public Board build() {
         if (charrs.isEmpty()) {
-            //rearranegCoordinates(initialBlock);
+            // rearranegCoordinates(initialBlock);
             buildBlock(initialBlock);
             dumpCharrsFromBlock(initialBlock);
 

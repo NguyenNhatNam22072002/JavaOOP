@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * @author Thedath Oudarya
  */
 public final class Table {
-    
+
     private Board board;
 
     private final int tableWidth;
@@ -55,13 +54,15 @@ public final class Table {
         for (int i = 0; i < rowsList.size(); i++) {
             List<String> row = rowsList.get(i);
             if (row.size() != headersList.size()) {
-                throw new RuntimeException("Size(" + row.size() + ") of the row(" + i + ") and header size(" + headersList.size() + ") are not equal");
+                throw new RuntimeException("Size(" + row.size() + ") of the row(" + i + ") and header size("
+                        + headersList.size() + ") are not equal");
             }
         }
         this.rowsList = rowsList;
         this.colWidthsList = new ArrayList<>();
         int avgWidthOfCol = (tableWidth - (gridMode == GRID_NON ? 0 : headersList.size() + 1)) / headersList.size();
-        int availableForExtend = (tableWidth - (gridMode == GRID_NON ? 0 : headersList.size() + 1)) % headersList.size();
+        int availableForExtend = (tableWidth - (gridMode == GRID_NON ? 0 : headersList.size() + 1))
+                % headersList.size();
         for (int i = 0; i < headersList.size(); i++, availableForExtend--) {
             int finalWidth = avgWidthOfCol + (availableForExtend > 0 ? 1 : 0);
             this.colWidthsList.add(finalWidth);
@@ -93,19 +94,23 @@ public final class Table {
         gridMode = GRID_COLUMN;
     }
 
-    public Table(Board board, int tableWidth, List<String> headersList, List<List<String>> rowsList, List<Integer> colWidthsList) {
+    public Table(Board board, int tableWidth, List<String> headersList, List<List<String>> rowsList,
+            List<Integer> colWidthsList) {
         this(board, tableWidth, headersList, rowsList);
         if (colWidthsList.size() != headersList.size()) {
-            throw new RuntimeException("Column width count(" + colWidthsList.size() + ") and header size(" + headersList.size() + ") are not equal");
+            throw new RuntimeException("Column width count(" + colWidthsList.size() + ") and header size("
+                    + headersList.size() + ") are not equal");
         } else {
             this.colWidthsList = colWidthsList;
         }
     }
 
-    public Table(Board board, int tableWidth, List<String> headersList, List<List<String>> rowsList, List<Integer> colWidthsList, List<Integer> colAlignsList) {
+    public Table(Board board, int tableWidth, List<String> headersList, List<List<String>> rowsList,
+            List<Integer> colWidthsList, List<Integer> colAlignsList) {
         this(board, tableWidth, headersList, rowsList, colWidthsList);
         if (colAlignsList.size() != headersList.size()) {
-            throw new RuntimeException("Column align count(" + colAlignsList.size() + ") and header size(" + headersList.size() + ") are not equal");
+            throw new RuntimeException("Column align count(" + colAlignsList.size() + ") and header size("
+                    + headersList.size() + ") are not equal");
         } else {
             this.colAlignsList = colAlignsList;
         }
@@ -135,7 +140,8 @@ public final class Table {
 
     public Table setColWidthsList(List<Integer> colWidthsList) {
         if (colWidthsList.size() != headersList.size()) {
-            throw new RuntimeException("Column width count(" + colWidthsList.size() + ") and header size(" + headersList.size() + ") are not equal");
+            throw new RuntimeException("Column width count(" + colWidthsList.size() + ") and header size("
+                    + headersList.size() + ") are not equal");
         } else {
             this.colWidthsList = colWidthsList;
         }
@@ -148,7 +154,8 @@ public final class Table {
 
     public Table setColAlignsList(List<Integer> colAlignsList) {
         if (colAlignsList.size() != headersList.size()) {
-            throw new RuntimeException("Column align count(" + colAlignsList.size() + ") and header size(" + headersList.size() + ") are not equal");
+            throw new RuntimeException("Column align count(" + colAlignsList.size() + ") and header size("
+                    + headersList.size() + ") are not equal");
         } else {
             this.colAlignsList = colAlignsList;
         }
@@ -227,16 +234,16 @@ public final class Table {
                     }
                 }
             }
-        } else {            
+        } else {
             for (int i = 0; i < headersList.size(); i++) {
                 String columnData = "";
                 for (int j = 0; j < rowsList.size(); j++) {
                     String rowData = rowsList.get(j).get(i);
                     columnData = columnData.concat(rowData).concat("\n");
                 }
-                Block block = new Block(board, colWidthsList.get(i), rowsList.size(),columnData);
+                Block block = new Block(board, colWidthsList.get(i), rowsList.size(), columnData);
                 int alignIndex = colAlignsList.get(i);
-                    block.setDataAlign(alignIndex);
+                block.setDataAlign(alignIndex);
                 if (initialTableBlock.getBelowBlock() == null) {
                     initialTableBlock.setBelowBlock(block);
                 } else {
@@ -246,8 +253,8 @@ public final class Table {
         }
         return initialTableBlock;
     }
-    
-    public Table invalidate(){
+
+    public Table invalidate() {
         initialTableBlock = null;
         return this;
     }

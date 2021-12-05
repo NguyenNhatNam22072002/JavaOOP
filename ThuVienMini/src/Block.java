@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -243,7 +242,8 @@ public final class Block {
                     break;
                 }
                 case BLOCK_CENTRE: {
-                    blockLeftSideSpaces = (board.boardWidth - (ix + getWidth() + additionalWidth)) / 2 + (board.boardWidth - (ix + getWidth() + additionalWidth)) % 2;
+                    blockLeftSideSpaces = (board.boardWidth - (ix + getWidth() + additionalWidth)) / 2
+                            + (board.boardWidth - (ix + getWidth() + additionalWidth)) % 2;
                     break;
                 }
                 case BLOCK_RIGHT: {
@@ -277,7 +277,8 @@ public final class Block {
                     if (i + 1 != dataInLines.size()) {
                         String prifix = dataLine.substring(getWidth(), dataLine.length());
                         String suffix = dataInLines.get(i + 1);
-                        String combinedValue = prifix.concat((suffix.length() > 0 ? String.valueOf(Charr.S) : "")).concat(suffix);
+                        String combinedValue = prifix.concat((suffix.length() > 0 ? String.valueOf(Charr.S) : ""))
+                                .concat(suffix);
                         dataInLines.set(i + 1, combinedValue);
                     }
                 }
@@ -295,8 +296,10 @@ public final class Block {
             if (givenAlign == DATA_TOP_LEFT || givenAlign == DATA_TOP_MIDDLE || givenAlign == DATA_TOP_RIGHT) {
                 dataStartingLineIndex = iy + additionalHeight;
             } else if (givenAlign == DATA_MIDDLE_LEFT || givenAlign == DATA_CENTER || givenAlign == DATA_MIDDLE_RIGHT) {
-                dataStartingLineIndex = iy + additionalHeight + ((getHeight() - dataInLines.size()) / 2 + (getHeight() - dataInLines.size()) % 2);
-            } else if (givenAlign == DATA_BOTTOM_LEFT || givenAlign == DATA_BOTTOM_MIDDLE || givenAlign == DATA_BOTTOM_RIGHT) {
+                dataStartingLineIndex = iy + additionalHeight
+                        + ((getHeight() - dataInLines.size()) / 2 + (getHeight() - dataInLines.size()) % 2);
+            } else if (givenAlign == DATA_BOTTOM_LEFT || givenAlign == DATA_BOTTOM_MIDDLE
+                    || givenAlign == DATA_BOTTOM_RIGHT) {
                 dataStartingLineIndex = iy + additionalHeight + (getHeight() - dataInLines.size());
             }
             int dataEndingLineIndex = dataStartingLineIndex + dataInLines.size();
@@ -333,15 +336,20 @@ public final class Block {
                         String lineData = dataInLines.get(dataLineIndex);
                         if (!lineData.isEmpty()) {
                             int dataLeftSideSpaces = -1;
-                            if (givenAlign == DATA_TOP_LEFT || givenAlign == DATA_MIDDLE_LEFT || givenAlign == DATA_BOTTOM_LEFT) {
+                            if (givenAlign == DATA_TOP_LEFT || givenAlign == DATA_MIDDLE_LEFT
+                                    || givenAlign == DATA_BOTTOM_LEFT) {
                                 dataLeftSideSpaces = 0;
-                            } else if (givenAlign == DATA_TOP_MIDDLE || givenAlign == DATA_CENTER || givenAlign == DATA_BOTTOM_MIDDLE) {
-                                dataLeftSideSpaces = (getWidth() - lineData.length()) / 2 + (getWidth() - lineData.length()) % 2;
-                            } else if (givenAlign == DATA_TOP_RIGHT || givenAlign == DATA_MIDDLE_RIGHT || givenAlign == DATA_BOTTOM_RIGHT) {
+                            } else if (givenAlign == DATA_TOP_MIDDLE || givenAlign == DATA_CENTER
+                                    || givenAlign == DATA_BOTTOM_MIDDLE) {
+                                dataLeftSideSpaces = (getWidth() - lineData.length()) / 2
+                                        + (getWidth() - lineData.length()) % 2;
+                            } else if (givenAlign == DATA_TOP_RIGHT || givenAlign == DATA_MIDDLE_RIGHT
+                                    || givenAlign == DATA_BOTTOM_RIGHT) {
                                 dataLeftSideSpaces = getWidth() - lineData.length();
                             }
                             int dataStartingIndex = (startingIX + dataLeftSideSpaces + (isGridAllowed() ? 1 : 0));
-                            int dataEndingIndex = (startingIX + dataLeftSideSpaces + lineData.length() - (isGridAllowed() ? 0 : 1));
+                            int dataEndingIndex = (startingIX + dataLeftSideSpaces + lineData.length()
+                                    - (isGridAllowed() ? 0 : 1));
                             if (ix >= dataStartingIndex && ix <= dataEndingIndex) {
                                 char charData = lineData.charAt(ix - dataStartingIndex);
                                 charrsList.add(new Charr(ix, iy, charData));

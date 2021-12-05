@@ -7,25 +7,24 @@ public class NguoiMuon extends Person {
     public int _Sosach;
     Scanner sc = new Scanner(System.in);
 
-    public NguoiMuon() 
-    {
+    public NguoiMuon() {
         super();
     }
-    public NguoiMuon(String hoten, String sdt, String diachi)
-    {
+
+    public NguoiMuon(String hoten, String sdt, String diachi) {
         super(hoten, sdt, diachi);
     }
-    public NguoiMuon(NguoiMuon n)
-    {
+
+    public NguoiMuon(NguoiMuon n) {
         super(n);
     }
-    public int getSosach()
-    {
+
+    public int getSosach() {
         return this._Sosach;
     }
+
     @Override
-    public void NhapInfo()
-    {
+    public void NhapInfo() {
         System.out.print("Nhap ho ten nguoi muon: ");
         this.Hoten = sc.nextLine();
         System.out.print("Nhap sdt: ");
@@ -33,10 +32,9 @@ public class NguoiMuon extends Person {
         System.out.print("Nhap dia chi: ");
         this.Diachi = sc.nextLine();
     }
-    
+
     @Override
-    public List<String> XuatInfo()
-    {
+    public List<String> XuatInfo() {
         return Arrays.asList(this.Hoten, this.Sdt, this.Diachi);
     }
 }
