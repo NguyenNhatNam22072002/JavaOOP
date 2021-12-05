@@ -12,29 +12,31 @@ public class TheThuVien {
     Scanner sc = new Scanner(System.in);
     public ArrayList<Sach> _thuvien = new ArrayList<Sach>();
     public int sosachdamuon = 0;
-    
-    public TheThuVien() 
-    {
-        
+
+    public TheThuVien() {
+
     }
-    public TheThuVien(NguoiMuon nm, String mathe)
-    {
+
+    public TheThuVien(NguoiMuon nm, String mathe) {
         this._nm = nm;
         this._Mathe = mathe;
     }
-    public String getMaThe(){
+
+    public String getMaThe() {
         return this._Mathe;
     }
-    public void setMaThe(String mathe){
+
+    public void setMaThe(String mathe) {
         this._Mathe = mathe;
     }
-    public void Dangky(){
+
+    public void Dangky() {
         this._nm.NhapInfo();
         System.out.print("Nhap ma the muon dang ky: ");
         this._Mathe = sc.nextLine();
     }
-    public void NhapInfo()
-    {
+
+    public void NhapInfo() {
         System.out.print("Nhap so loai sach muon: ");
         this._nm._Sosach = sc.nextInt();
         for (int i = 0; i < this._nm.getSosach(); i++) {
@@ -55,30 +57,31 @@ public class TheThuVien {
                     break;
                 default:
                     sc.nextLine();
-                    sach= new SachKhac();
+                    sach = new SachKhac();
                     sach.MuonSach();
                     break;
             }
             this._thuvien.add(sach);
-            long maToday = System.currentTimeMillis();   
-            Date today = new Date(maToday);   
+            long maToday = System.currentTimeMillis();
+            Date today = new Date(maToday);
             this._ngaymuon.add(today);
         }
         sosachdamuon += this._nm.getSosach();
     }
-    public List<String> XuatInfo()
-    {
-    //     this._nm.XuatInfo();
-    //     System.out.println("-Ma the: " + this._Mathe);
-    //     System.out.println("-Ngay muon: " + this._ngaymuon);
-    //     System.out.println("-Ngay tra: " + this._ngaytra);
-    //     System.out.println("-So sach muon: " + this._nm.getSosach());
-    //     ArrayList<Sach> Cacsach = this._nm._thuvien; 
-    //     for(int i = 0; i < this._nm.getSosach(); i++)
-    //     {
-    //         System.out.print("+Ma sach thu " + (i+1) + " la:" + Cacsach.get(i).getMaSach());
-    //         System.out.println();
-    //     }
+
+    public List<String> XuatInfo() {
+        // this._nm.XuatInfo();
+        // System.out.println("-Ma the: " + this._Mathe);
+        // System.out.println("-Ngay muon: " + this._ngaymuon);
+        // System.out.println("-Ngay tra: " + this._ngaytra);
+        // System.out.println("-So sach muon: " + this._nm.getSosach());
+        // ArrayList<Sach> Cacsach = this._nm._thuvien;
+        // for(int i = 0; i < this._nm.getSosach(); i++)
+        // {
+        // System.out.print("+Ma sach thu " + (i+1) + " la:" +
+        // Cacsach.get(i).getMaSach());
+        // System.out.println();
+        // }
         return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe);
     }
 }
