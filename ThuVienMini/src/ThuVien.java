@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
-public class QuanLy {
+public class ThuVien {
     public static void main(String[] args) {
 
         NhanVien Nam = new NhanVien("Nhat Nam", "0355181736", "Binh Dinh");
