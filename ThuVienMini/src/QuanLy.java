@@ -188,7 +188,7 @@ public class QuanLy {
                     sc.nextLine();
                     sc.nextLine();
                     break;
-                    case 3:
+                case 3:
                     System.out.println("\t\t    -------Nhap them sach-------");
                     int nhap;
                     do {
@@ -246,25 +246,51 @@ public class QuanLy {
                         nhap = sc.nextInt();
                     } while (nhap == 1);
                     break;
-                    case 4:
+                case 4:
                     System.out.println("\t\t    -------Dang ky the thu vien--------");
-                    TheThuVien t = new TheThuVien();
-                    t.Dangky();
-                    for (int i = 0; i < ds.size(); i++) {
-                        if (t.getMaThe().equals(ds.get(i).getMaThe())) {
-                            System.out.println("Ma the da co nguoi dang ky! Vui long ma khac!");
-                            System.out.print("Nhap lai ma: ");
-                            String mathe = sc.next();
-                            t.setMaThe(mathe);
-                            i -= 1;
+                    TheThuVien the = new TheThuVien();
+                    the.Dangky();
+                    Boolean check4;
+                    do
+                    {
+                        check4 = true;
+                        for(int i = 0; i < ds.size(); i++)
+                        {
+                            if(the.getMaThe().equals(ds.get(i).getMaThe()))
+                            {
+                                check4 = false;
+                                System.out.println("Ma the da co nguoi dang ky! Vui long nhap ma khac!");
+                                System.out.print("Nhap lai ma: ");
+                                String mathe = sc.next();
+                                the.setMaThe(mathe);
+                                break;
+                            }
                         }
-                    }
-                    ds.add(t);
+                    } while(!check4);
+                    ds.add(the);
                     System.out.println("Dang ky thanh cong!");
                     System.out.print("Nhan Enter de tiep tuc!");
                     sc.nextLine();
                     sc.nextLine();
-                    break;
+                break;
+                    // System.out.println("\t\t    -------Dang ky the thu vien--------");
+                    // TheThuVien t = new TheThuVien();
+                    // t.Dangky();
+                    // for (int i = 0; i < ds.size(); i++) {
+                    //     if (t.getMaThe().equals(ds.get(i).getMaThe())) {
+                    //         System.out.println("Ma the da co nguoi dang ky! Vui long nhap ma khac!");
+                    //         System.out.print("Nhap lai ma: ");
+                    //         String mathe = sc.next();
+                    //         t.setMaThe(mathe);
+                    //         i -= 1;
+                    //     }
+                    // }
+                    // ds.add(t);
+                    // System.out.println("Dang ky thanh cong!");
+                    // System.out.print("Nhan Enter de tiep tuc!");
+                    // sc.nextLine();
+                    // sc.nextLine();
+                    // break;
                 case 5:
                     int s = 0;
                     do {
@@ -283,6 +309,7 @@ public class QuanLy {
                                 for (int i = 0; i < ds.size(); i++) {
                                     if (ds.get(i).getMaThe().equals(mathe)) {
                                         vitri = i;
+                                        break;
                                     }
                                 }
                                 if (vitri == -1) {
