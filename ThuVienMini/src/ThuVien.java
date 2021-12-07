@@ -386,19 +386,20 @@ public class ThuVien {
                                 }
                             }
                             int dem = ds.get(vitri)._nm.getSosach();
+                            int Sosachdamuon = ds.get(vitri).sosachdamuon;
                             for (int i = 0; i < ds.get(vitri)._nm.getSosach(); i++) {
                                 if (String.valueOf(
-                                        ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
+                                        ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachKhac")) {
                                     for (int j = 0; j < listsachkhac.size(); j++) {
-                                        if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
+                                        if (ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachkhac.get(j).getMaSach())) {
                                             if (listsachkhac.get(j).soluong > 0) {
                                                 listsachkhac.get(j).soluong -= 1;
                                             } else {
                                                 System.out.println("Het sach co ma '" + listsachkhac.get(j).getMaSach()
                                                         + "' roi!!!");
-                                                ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                                ds.get(vitri)._thuvien.remove(Sosachdamuon - i - 1);
                                                 ds.get(vitri).sosachdamuon -= 1;
                                                 dem--;
                                             }
@@ -407,17 +408,17 @@ public class ThuVien {
                                     continue;
                                 }
                                 if (String.valueOf(
-                                        ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
+                                        ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachGiaoKhoa")) {
                                     for (int j = 0; j < listsachgiaokhoa.size(); j++) {
-                                        if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
+                                        if (ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachgiaokhoa.get(j).getMaSach())) {
                                             if (listsachgiaokhoa.get(j).soluong > 0) {
                                                 listsachgiaokhoa.get(j).soluong -= 1;
                                             } else {
                                                 System.out.println("Het sach co ma '"
                                                         + listsachgiaokhoa.get(j).getMaSach() + "' roi!!!");
-                                                ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                                ds.get(vitri)._thuvien.remove(Sosachdamuon - i - 1);
                                                 ds.get(vitri).sosachdamuon -= 1;
                                                 dem--;
                                             }
@@ -426,17 +427,17 @@ public class ThuVien {
                                     continue;
                                 }
                                 if (String.valueOf(
-                                        ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
+                                        ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachThamKhao")) {
                                     for (int j = 0; j < listsachthamkhao.size(); j++) {
-                                        if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
+                                        if (ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachthamkhao.get(j).getMaSach())) {
                                             if (listsachthamkhao.get(j).soluong > 0) {
                                                 listsachthamkhao.get(j).soluong -= 1;
                                             } else {
                                                 System.out.println("Het sach co ma '"
                                                         + listsachthamkhao.get(j).getMaSach() + "' roi!!!");
-                                                ds.get(vitri)._thuvien.remove(ds.get(vitri).sosachdamuon - i - 1);
+                                                ds.get(vitri)._thuvien.remove(Sosachdamuon - i - 1);
                                                 ds.get(vitri).sosachdamuon -= 1;
                                                 dem--;
                                             }
