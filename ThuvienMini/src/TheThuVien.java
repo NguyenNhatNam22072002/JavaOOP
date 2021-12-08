@@ -506,5 +506,3 @@ public class TheThuVien {
                     sc.close();
     }
 }
-
-
