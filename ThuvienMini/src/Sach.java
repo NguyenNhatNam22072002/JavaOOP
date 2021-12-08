@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,5 +128,6 @@ public abstract class Sach {
                         System.out.print("Ban co muon nhap sach nua khong (1-Yes/2-No):");
                         nhap = sc.nextInt();
                     } while (nhap == 1);
+                    sc.close();
     }
 }

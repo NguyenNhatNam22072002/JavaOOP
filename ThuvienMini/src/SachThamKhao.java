@@ -18,6 +18,7 @@ public class SachThamKhao extends Sach {
         this.loai = loai;
     }
 
+    
     public String getLoai() {
         return this.loai;
     }

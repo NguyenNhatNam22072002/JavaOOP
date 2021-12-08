@@ -17,6 +17,7 @@ public class NhanVien extends Person {
     public NhanVien(NhanVien n) {
         super(n);
     }
+    
 
     @Override
     public void NhapInfo() {
@@ -58,6 +59,7 @@ public class NhanVien extends Person {
                                 System.out.println(tableString);
                                 System.out.print("Nhan Enter de tiep tuc!");
                                 sc.nextLine();
+                                sc.close();
     }
     public static void ThemNhanVien(ArrayList<NhanVien> listNV)
     {
@@ -74,5 +76,6 @@ public class NhanVien extends Person {
                                 System.out.print("Nhan Enter de tiep tuc!");
                                 sc.nextLine();
                                 sc.nextLine();
+                                sc.close();
     }
 }
