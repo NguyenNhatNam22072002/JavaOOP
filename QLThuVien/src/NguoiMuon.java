@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NguoiMuon extends Person {
-    public int _Sosach;
+    private int _Sosach;
     Scanner sc = new Scanner(System.in);
 
     public NguoiMuon() {
@@ -21,6 +21,10 @@ public class NguoiMuon extends Person {
 
     public int getSosach() {
         return this._Sosach;
+    }
+
+    public void setSosach(int Sosach) {
+        this._Sosach = Sosach;
     }
 
     @Override
