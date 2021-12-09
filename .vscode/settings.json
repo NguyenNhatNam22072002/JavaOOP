@@ -2,10 +2,11 @@
     "java.project.sourcePaths": [
         "ThuvienMini/src",
         "QuanLyThuVien/src",
+        "QuanLyThuVien/Main/src",
         "Interface_Polymorphism",
         "Inheritance",
         "HELLOWORLD/src",
         "DemoCode-PPT",
-        "QuanLyThuVien/Main/src"
+        "QLThuVien/src"
     ]
 }
