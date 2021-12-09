@@ -15,7 +15,6 @@ public class SachKhac extends Sach {
     }
 
     public void setTheloai(String theloai) {
-        
         this.theloai = theloai;
     }
 

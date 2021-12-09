@@ -115,7 +115,6 @@ public class TheThuVien {
                     System.out.println("Dang ky thanh cong!");
                     System.out.print("Nhan Enter de tiep tuc!");
                     sc.nextLine();
-                    sc.close();
     }
     
     public static void MuonSach(ArrayList<TheThuVien> ds, ArrayList<SachGiaoKhoa> listsachgiaokhoa, ArrayList<SachThamKhao> listsachthamkhao, ArrayList<SachKhac> listsachkhac)
@@ -287,7 +286,6 @@ public class TheThuVien {
                             s = sc.nextInt();
                         }
                     } while (s == 1);
-                    sc.close();
     }
 
     public static void ThongTinNguoiMuon(ArrayList<TheThuVien> ds, ArrayList<Sach> thuvien)
@@ -386,7 +384,6 @@ public class TheThuVien {
                 }
             }
         }
-        sc.close();
     }
     public static void ThongTinNguoiMuonQuaHan(ArrayList<TheThuVien> ds, ArrayList<Sach> thuvien)
     {
@@ -410,7 +407,6 @@ public class TheThuVien {
                         System.out.println("\n\t\t\t   Khong co nguoi muon qua han!");
                         System.out.print("Nhan Enter de tiep tuc!");
                         sc.nextLine();
-                        sc.close();
                         return;
                     }
                     for (int i = 0; i < vitri1.size(); i++) {
@@ -503,6 +499,5 @@ public class TheThuVien {
                                 break;
                         }
                     }
-                    sc.close();
     }
 }

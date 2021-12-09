@@ -92,7 +92,6 @@ public class ThuVien {
                     break;
             }
         } while (chon < 8);
-        sc.close();
     }
 
     
