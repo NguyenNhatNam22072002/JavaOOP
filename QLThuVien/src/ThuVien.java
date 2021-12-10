@@ -72,9 +72,8 @@ public class ThuVien {
                     sc.nextLine();
                     break;
                 case "3":
-                    Sach.NhapThemSach(listsachgiaokhoa, listsachthamkhao, listsachkhac);
-                    // for(int i = 0; i < listsachgiaokhoa.size(); i++)
-                    //     System.out.println(listsachgiaokhoa.get(i).getMaSach() + " ");
+                    Sach.NhapThemSach(thuvien, listsachgiaokhoa, listsachthamkhao, listsachkhac);
+                    
                     break;
                 case "4":
                     TheThuVien.DangKyThe(ds);
@@ -108,3 +107,4 @@ public class ThuVien {
         }
     }
 }
+//meow meow
