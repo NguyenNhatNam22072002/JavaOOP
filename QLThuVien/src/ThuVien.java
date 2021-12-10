@@ -39,7 +39,7 @@ public class ThuVien {
 
         ArrayList<TheThuVien> ds = new ArrayList<TheThuVien>();
 
-        int chon = 0;
+        String chon;
         do {
             System.out.print("\033[H\033[2J\n");
             System.out.flush();
@@ -47,9 +47,9 @@ public class ThuVien {
                     "1. Nhan Vien.\n2. Thong tin sach trong thu vien.\n3. Nhap sach.\n4. Dang ky hoi vien\n5. Muon sach.\n(Vui long ky xem thong tin sach truoc khi muon)\n");
             System.out.print("6. Danh sach nguoi muon.\n7. Danh nguoi muon qua thoi han\n8. Exit.\n");
             System.out.print("Ban chon: ");
-            chon = sc.nextInt();
+            chon = sc.next();
             switch (chon) {
-                case 1:
+                case "1":
                     int chon2;
                     System.out.print("\t1. In nhan vien.\n\t2. Them nhan vien\n"); // 2 chức năng của nhân viên
                     System.out.print("\tBan chon: ");
@@ -63,7 +63,7 @@ public class ThuVien {
                         break;
                     }
                     break;
-                case 2:
+                case "2":
                     SachGiaoKhoa.ThongtinSach(listsachgiaokhoa);
                     SachThamKhao.ThongtinSach(listsachthamkhao);
                     SachKhac.ThongtinSach(listsachkhac);
@@ -71,27 +71,32 @@ public class ThuVien {
                     sc.nextLine();
                     sc.nextLine();
                     break;
-                case 3:
+                case "3":
                     Sach.NhapThemSach(listsachgiaokhoa, listsachthamkhao, listsachkhac);
+                    // for(int i = 0; i < listsachgiaokhoa.size(); i++)
+                    //     System.out.println(listsachgiaokhoa.get(i).getMaSach() + " ");
                     break;
-                case 4:
+                case "4":
                     TheThuVien.DangKyThe(ds);
                     break;
-                case 5:
+                case "5":
                     TheThuVien.MuonSach(ds, listsachgiaokhoa, listsachthamkhao, listsachkhac);
                     break;
-                case 6:
+                case "6":
                     TheThuVien.ThongTinNguoiMuon(ds, thuvien);
                     break;
-                case 7:
+                case "7":
                     TheThuVien.ThongTinNguoiMuonQuaHan(ds, thuvien);
                     break;
-                default:
+                case "8":
                     System.out.println("\t\tTam biet!!!!!");
                     wait(1000);
                     break;
+                default:
+                    break;
             }
-        } while (chon < 8);
+        } while (chon != "8");
+        sc.close();
     }
 
     

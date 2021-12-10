@@ -8,13 +8,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TheThuVien {
-    public NguoiMuon _nm = new NguoiMuon();
+    private NguoiMuon _nm = new NguoiMuon();
     private String _Mathe;
-    public ArrayList<Date> _ngaymuon = new ArrayList<Date>();
-    public ArrayList<String> _ngaytra = new ArrayList<String>();
+    private ArrayList<Date> _ngaymuon = new ArrayList<Date>();
+    private ArrayList<String> _ngaytra = new ArrayList<String>();
+    private ArrayList<Sach> _thuvien = new ArrayList<Sach>();
+    private int sosachdamuon = 0;
+
     Scanner sc = new Scanner(System.in);
-    public ArrayList<Sach> _thuvien = new ArrayList<Sach>();
-    public int sosachdamuon = 0;
 
     public TheThuVien() {
 
@@ -41,7 +42,9 @@ public class TheThuVien {
 
     public void NhapInfo() {
         System.out.print("Nhap so loai sach muon: ");
-        this._nm._Sosach = sc.nextInt();
+        int Sosach;
+        Sosach = sc.nextInt();
+        this._nm.setSosach(Sosach);
         for (int i = 0; i < this._nm.getSosach(); i++) {
             int number;
             System.out.print("Loai sach ban muon muon (SGK: chon 1/ Sach Tham khao: chon 2/ Sach khac: chon 3): ");
