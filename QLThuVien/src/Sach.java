@@ -87,7 +87,8 @@ public abstract class Sach {
                                 sachgk.NhapSach();
                                 Boolean check1 = false;
                                 for (int i = 0; i < listsachgiaokhoa.size(); i++)
-                                    if (sachgk.getMaSach().equals(listsachgiaokhoa.get(i).getMaSach())) {
+                                    if (sachgk.getMaSach().equals(listsachgiaokhoa.get(i).getMaSach())) 
+                                    {
                                         listsachgiaokhoa.get(i)
                                                 .setSoLuong(listsachgiaokhoa.get(i).getSoLuong() + sachgk.getSoLuong());
                                         check1 = true;

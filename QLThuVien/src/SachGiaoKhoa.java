@@ -29,11 +29,10 @@ public class SachGiaoKhoa extends Sach {
         scanner.nextLine();
         lop = scanner.nextInt();
     }
-
+    
     @Override
     public List<String> InSach() {
-        return Arrays.asList(this.maSach, this.tenSach, this.tenNXB, String.valueOf(this.lop),
-                String.valueOf(this.soluong));
+        return Arrays.asList(this.maSach, this.tenSach, this.tenNXB, String.valueOf(this.lop),String.valueOf(this.soluong));
     }
     public static void ThongtinSach(ArrayList<SachGiaoKhoa> listsachgiaokhoa)
     {
