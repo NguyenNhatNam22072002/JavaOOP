@@ -71,7 +71,8 @@ public abstract class Sach {
     }
 
     public abstract List<String> InSach();
-    public static void NhapThemSach(ArrayList<SachGiaoKhoa> listsachgiaokhoa, ArrayList<SachThamKhao> listsachthamkhao, ArrayList<SachKhac> listsachkhac)
+
+    public static void NhapThemSach(ArrayList<Sach> thuvien, ArrayList<SachGiaoKhoa> listsachgiaokhoa, ArrayList<SachThamKhao> listsachthamkhao, ArrayList<SachKhac> listsachkhac)
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("\t\t    -------Nhap them sach-------");
@@ -89,13 +90,19 @@ public abstract class Sach {
                                 for (int i = 0; i < listsachgiaokhoa.size(); i++)
                                     if (sachgk.getMaSach().equals(listsachgiaokhoa.get(i).getMaSach())) 
                                     {
-                                        listsachgiaokhoa.get(i)
-                                                .setSoLuong(listsachgiaokhoa.get(i).getSoLuong() + sachgk.getSoLuong());
+                                        listsachgiaokhoa.get(i).setSoLuong(listsachgiaokhoa.get(i).getSoLuong() + sachgk.getSoLuong());
+                                        for(int j = 0; j < thuvien.size(); j++)
+                                            if(sachgk.getMaSach().equals(thuvien.get(j).getMaSach()))
+                                                thuvien.get(j).setSoLuong(thuvien.get(j).getSoLuong() + sachgk.getSoLuong());
                                         check1 = true;
                                         break;
                                     }
+                                
                                 if (check1 == false)
+                                {
+                                    thuvien.add(sachgk);
                                     listsachgiaokhoa.add(sachgk);
+                                }
                                 break;
                             case 2:
                                 SachThamKhao sachtk = new SachThamKhao();
@@ -103,13 +110,18 @@ public abstract class Sach {
                                 Boolean check2 = false;
                                 for (int i = 0; i < listsachthamkhao.size(); i++)
                                     if (sachtk.getMaSach().equals(listsachthamkhao.get(i).getMaSach())) {
-                                        listsachthamkhao.get(i)
-                                                .setSoLuong(listsachthamkhao.get(i).getSoLuong() + sachtk.getSoLuong());
+                                        listsachthamkhao.get(i).setSoLuong(listsachthamkhao.get(i).getSoLuong() + sachtk.getSoLuong());
+                                        for(int j = 0; j < thuvien.size(); j++)
+                                            if(sachtk.getMaSach().equals(thuvien.get(j).getMaSach()))
+                                                thuvien.get(j).setSoLuong(thuvien.get(j).getSoLuong() + sachtk.getSoLuong());
                                         check2 = true;
                                         break;
                                     }
                                 if (check2 == false)
+                                {
+                                    thuvien.add(sachtk);
                                     listsachthamkhao.add(sachtk);
+                                }
                                 break;
                             default:
                                 SachKhac sachkhac = new SachKhac();
@@ -117,13 +129,18 @@ public abstract class Sach {
                                 Boolean check3 = false;
                                 for (int i = 0; i < listsachkhac.size(); i++)
                                     if (sachkhac.getMaSach().equals(listsachkhac.get(i).getMaSach())) {
-                                        listsachkhac.get(i)
-                                                .setSoLuong(listsachkhac.get(i).getSoLuong() + sachkhac.getSoLuong());
+                                        listsachkhac.get(i).setSoLuong(listsachkhac.get(i).getSoLuong() + sachkhac.getSoLuong());
+                                        for(int j = 0; j < thuvien.size(); j++)
+                                            if(sachkhac.getMaSach().equals(thuvien.get(j).getMaSach()))
+                                                thuvien.get(j).setSoLuong(thuvien.get(j).getSoLuong() + sachkhac.getSoLuong());
                                         check3 = true;
                                         break;
                                     }
                                 if (check3 == false)
+                                {
+                                    thuvien.add(sachkhac);
                                     listsachkhac.add(sachkhac);
+                                }
                                 break;
                         }
                         System.out.print("Ban co muon nhap sach nua khong (1-Yes/2-No):");
