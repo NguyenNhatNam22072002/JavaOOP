@@ -182,7 +182,7 @@ public class TheThuVien {
                                         ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachThamKhao")) 
                                         {
-                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) 
+                                    for (int j = 0; j < listsachthamkhao.size(); j++) 
                                     {
                                         if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachthamkhao.get(j).getMaSach())) {
@@ -205,7 +205,7 @@ public class TheThuVien {
                                 if (String.valueOf(
                                         ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachKhac")) {
-                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) 
+                                    for (int j = 0; j < listsachkhac.size(); j++) 
                                     {
                                         if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachkhac.get(j).getMaSach())) {
