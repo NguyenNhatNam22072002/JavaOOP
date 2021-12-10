@@ -93,7 +93,10 @@ public abstract class Sach {
                                         listsachgiaokhoa.get(i).setSoLuong(listsachgiaokhoa.get(i).getSoLuong() + sachgk.getSoLuong());
                                         for(int j = 0; j < thuvien.size(); j++)
                                             if(sachgk.getMaSach().equals(thuvien.get(j).getMaSach()))
+                                            {
                                                 thuvien.get(j).setSoLuong(thuvien.get(j).getSoLuong() + sachgk.getSoLuong());
+                                                break;
+                                            }
                                         check1 = true;
                                         break;
                                     }
@@ -113,7 +116,10 @@ public abstract class Sach {
                                         listsachthamkhao.get(i).setSoLuong(listsachthamkhao.get(i).getSoLuong() + sachtk.getSoLuong());
                                         for(int j = 0; j < thuvien.size(); j++)
                                             if(sachtk.getMaSach().equals(thuvien.get(j).getMaSach()))
+                                            {
                                                 thuvien.get(j).setSoLuong(thuvien.get(j).getSoLuong() + sachtk.getSoLuong());
+                                                break;
+                                            }
                                         check2 = true;
                                         break;
                                     }
