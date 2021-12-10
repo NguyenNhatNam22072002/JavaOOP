@@ -73,18 +73,18 @@ public class TheThuVien {
     }
 
     public List<String> XuatInfo() {
-        // this._nm.XuatInfo();
-        // System.out.println("-Ma the: " + this._Mathe);
-        // System.out.println("-Ngay muon: " + this._ngaymuon);
-        // System.out.println("-Ngay tra: " + this._ngaytra);
-        // System.out.println("-So sach muon: " + this._nm.getSosach());
-        // ArrayList<Sach> Cacsach = this._nm._thuvien;
-        // for(int i = 0; i < this._nm.getSosach(); i++)
-        // {
-        // System.out.print("+Ma sach thu " + (i+1) + " la:" +
-        // Cacsach.get(i).getMaSach());
-        // System.out.println();
-        // }
+        /*this._nm.XuatInfo();
+        System.out.println("-Ma the: " + this._Mathe);
+        System.out.println("-Ngay muon: " + this._ngaymuon);
+        System.out.println("-Ngay tra: " + this._ngaytra);
+        System.out.println("-So sach muon: " + this._nm.getSosach());
+        ArrayList<Sach> Cacsach = this._nm._thuvien;
+        for(int i = 0; i < this._nm.getSosach(); i++)
+        {
+        System.out.print("+Ma sach thu " + (i+1) + " la:" +
+        Cacsach.get(i).getMaSach());
+        System.out.println();
+        }*/
         return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe);
     }
 
@@ -124,17 +124,20 @@ public class TheThuVien {
                     do {
                         System.out.println("\t\t    ----Nhap thong tin muon sach-----");
                         int vitri = -1;
-                        if (ds.size() <= 0) {
+                        if (ds.size() <= 0) 
+                        {
                             System.out.println("\n\t\t\t    Chua co hoi vien!");
                             System.out.println("\n\t\t\t    Vui long dang ky!");
                             System.out.print("Nhan Enter de tiep tuc!");
                             sc.nextLine();
-                        } else {
+                        } else 
+                        {
                             System.out.print("Nhap ma the: ");
                             String mathe = sc.next();
                             do {
                                 for (int i = 0; i < ds.size(); i++) {
-                                    if (ds.get(i).getMaThe().equals(mathe)) {
+                                    if (ds.get(i).getMaThe().equals(mathe))
+                                    {
                                         vitri = i;
                                         break;
                                     }
@@ -146,18 +149,21 @@ public class TheThuVien {
                                 }
                             } while (vitri == -1);
                             ds.get(vitri).NhapInfo();
-                            for (int i = 0; i < ds.get(vitri)._nm.getSosach(); i++) {
+                            for (int i = 0; i < ds.get(vitri)._nm.getSosach(); i++) 
+                            {
                                 boolean check = false;
                                 if (String.valueOf(
                                         ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachGiaoKhoa")) {
-                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) {
+                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) 
+                                    {
                                         if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachgiaokhoa.get(j).getMaSach())) {
                                             check = true;
                                         }
                                     }
-                                    if (!check) {
+                                    if (!check) 
+                                    {
                                         System.out.println("Sach co ma '" + ds.get(vitri)._thuvien
                                                 .get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 + "' trong SGK khong ton tai!");
@@ -171,14 +177,17 @@ public class TheThuVien {
                                 }
                                 if (String.valueOf(
                                         ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
-                                        .equalsIgnoreCase("class SachThamKhao")) {
-                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) {
+                                        .equalsIgnoreCase("class SachThamKhao")) 
+                                        {
+                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) 
+                                    {
                                         if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachthamkhao.get(j).getMaSach())) {
                                             check = true;
                                         }
                                     }
-                                    if (!check) {
+                                    if (!check) 
+                                    {
                                         System.out.println("Sach co ma '" + ds.get(vitri)._thuvien
                                                 .get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 + "' trong sach tham khao khong ton tai!");
@@ -193,13 +202,15 @@ public class TheThuVien {
                                 if (String.valueOf(
                                         ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachKhac")) {
-                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) {
+                                    for (int j = 0; j < listsachgiaokhoa.size(); j++) 
+                                    {
                                         if (ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 .equals(listsachkhac.get(j).getMaSach())) {
                                             check = true;
                                         }
                                     }
-                                    if (!check) {
+                                    if (!check) 
+                                    {
                                         System.out.println("Sach co ma '" + ds.get(vitri)._thuvien
                                                 .get(ds.get(vitri).sosachdamuon - i - 1).getMaSach()
                                                 + "' trong sach khac khong ton tai!");
@@ -214,7 +225,8 @@ public class TheThuVien {
                             }
                             int dem = ds.get(vitri)._nm.getSosach();
                             int Sosachdamuon = ds.get(vitri).sosachdamuon;
-                            for (int i = 0; i < ds.get(vitri)._nm.getSosach(); i++) {
+                            for (int i = 0; i < ds.get(vitri)._nm.getSosach(); i++) 
+                            {
                                 if (String.valueOf(
                                         ds.get(vitri)._thuvien.get(Sosachdamuon - i - 1).getClass())
                                         .equalsIgnoreCase("class SachKhac")) {
