@@ -71,5 +71,20 @@
         //             }
         // }
 
+        // public abstract class Person {
+        //         public abstract void say();
+        // }
+        // public class NhanVien extends Person{
+        //     @Override
+        //     public void say(){
+        //         System.out.println("Toi la Nhan vien!");
+        //     }
+        // }
+        // class Program{
+        //     public static void main(String[] args) {
+        //         Person a = new NhanVien();
+        //         a.say();
+        //     }
+        // }
         
 

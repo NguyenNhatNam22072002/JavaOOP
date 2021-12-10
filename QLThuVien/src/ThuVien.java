@@ -73,6 +73,8 @@ public class ThuVien {
                     break;
                 case "3":
                     Sach.NhapThemSach(listsachgiaokhoa, listsachthamkhao, listsachkhac);
+                    // for(int i = 0; i < listsachgiaokhoa.size(); i++)
+                    //     System.out.println(listsachgiaokhoa.get(i).getMaSach() + " ");
                     break;
                 case "4":
                     TheThuVien.DangKyThe(ds);
