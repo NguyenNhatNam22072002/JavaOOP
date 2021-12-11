@@ -93,7 +93,7 @@ public class ThuVien {
                 default:
                     break;
             }
-        } while (chon != "8");
+        } while (!chon.equals("8"));
         sc.close();
     }
 
