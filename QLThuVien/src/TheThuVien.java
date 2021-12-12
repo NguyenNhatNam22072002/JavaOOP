@@ -86,21 +86,22 @@ public class TheThuVien {
         System.out.println("\t\t    -------Dang ky the thu vien--------");
         TheThuVien the = new TheThuVien();
         the.Dangky();
-        Boolean check4;
-        do {
-            check4 = true;
-            for (int i = 0; i < ds.size(); i++) {
-                if (the.getMaThe().equals(ds.get(i).getMaThe())) {
+        Boolean check4;     
+        do {    //Hàm kiểm tra xem mã thẻ đã có trước đó chưa
+            check4 = true;  
+            for (int i = 0; i < ds.size(); i++) {      //Cho for chạy từ đầu list mã thẻ               
+                if (the.getMaThe().equals(ds.get(i).getMaThe()))    //Nếu đã có trước đó
+                {
                     check4 = false;
                     System.out.println("Ma the da co nguoi dang ky! Vui long nhap ma khac!");
                     System.out.print("Nhap lai ma: ");
-                    String mathe = sc.next();
-                    the.setMaThe(mathe);
+                    String mathe = sc.next();   //Nhập lại mã
+                    the.setMaThe(mathe);    //Set lại mã người này
                     break;
                 }
             }
         } while (!check4);
-        ds.add(the);
+        ds.add(the);    //Thêm thẻ mới được tạo vào list đăng ký thẻ
         System.out.println("Dang ky thanh cong!");
         System.out.print("Nhan Enter de tiep tuc!");
         sc.nextLine();
