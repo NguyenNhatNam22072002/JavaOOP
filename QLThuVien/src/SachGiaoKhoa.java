@@ -15,6 +15,11 @@ public class SachGiaoKhoa extends Sach {
         this.lop = lop;
     }
 
+    public SachGiaoKhoa(SachGiaoKhoa s){
+        super(s);
+        this.lop = s.lop;
+    }
+
     public void setLop(int lop) {
         this.lop = lop;
     }

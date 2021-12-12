@@ -11,15 +11,21 @@ public abstract class Sach {
     Scanner scanner = new Scanner(System.in);
 
     public Sach() {
-        super();
+
     }
 
     public Sach(String maSach, String tenSach, String nhaXuatBan, int soLuong) {
-        super();
         this.maSach = maSach;
         this.tenSach = tenSach;
         this.tenNXB = nhaXuatBan;
         this.soluong = soLuong;
+    }
+
+    public Sach(Sach s){
+        this.maSach = s.maSach;
+        this.tenSach = s.tenSach;
+        this.tenNXB = s.tenNXB;
+        this.soluong = s.soluong;
     }
 
     public String getMaSach() {

@@ -18,7 +18,7 @@ public class ThuVien {
         listNV.add(Hai);
         listNV.add(Nguyen);
 
-        SachGiaoKhoa sachToan = new SachGiaoKhoa("sgktoan1", "ToanCaoCap", "Kim Dong", 1, 13);
+        SachGiaoKhoa sachToan = new SachGiaoKhoa("gktoan1", "ToanCaoCap", "Kim Dong", 1, 13);
         SachKhac Conan = new SachKhac("conan1", "Conan", "Kim Dong", 1, "Tieu thuyet");
         SachThamKhao thamkhao = new SachThamKhao("tkvan1", "Sach Giai Van 12", "Kim Dong", 2, "Van");
 
