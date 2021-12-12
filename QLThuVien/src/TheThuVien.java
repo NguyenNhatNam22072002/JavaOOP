@@ -76,18 +76,6 @@ public class TheThuVien {
     }
 
     public List<String> XuatInfo() {
-        /*this._nm.XuatInfo();
-        System.out.println("-Ma the: " + this._Mathe);
-        System.out.println("-Ngay muon: " + this._ngaymuon);
-        System.out.println("-Ngay tra: " + this._ngaytra);
-        System.out.println("-So sach muon: " + this._nm.getSosach());
-        ArrayList<Sach> Cacsach = this._nm._thuvien;
-        for(int i = 0; i < this._nm.getSosach(); i++)
-        {
-        System.out.print("+Ma sach thu " + (i+1) + " la:" +
-        Cacsach.get(i).getMaSach());
-        System.out.println();
-        }*/
         return Arrays.asList(this._nm.getHoten(), this._nm.getSdt(), this._nm.getDiachi(), this._Mathe);
     }
 
@@ -98,18 +86,19 @@ public class TheThuVien {
                     TheThuVien the = new TheThuVien();
                     the.Dangky();
                     Boolean check4;
+                    //Hàm kiểm tra xem thẻ đã được đăng ký từ trước đó chưa
                     do
                     {
-                        check4 = true;
-                        for(int i = 0; i < ds.size(); i++)
+                        check4 = true;      
+                        for(int i = 0; i < ds.size(); i++)      //Kiểm tra xem thẻ đã được đăng ký từ trước đó chưa
                         {
-                            if(the.getMaThe().equals(ds.get(i).getMaThe()))
+                            if(the.getMaThe().equals(ds.get(i).getMaThe()))     //Nếu đã đăng ký từ trước
                             {
                                 check4 = false;
                                 System.out.println("Ma the da co nguoi dang ky! Vui long nhap ma khac!");
                                 System.out.print("Nhap lai ma: ");
-                                String mathe = sc.next();
-                                the.setMaThe(mathe);
+                                String mathe = sc.next();       //Nhập lại mã
+                                the.setMaThe(mathe);        //Set lại mã thẻ
                                 break;
                             }
                         }
