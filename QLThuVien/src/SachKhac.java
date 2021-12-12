@@ -14,11 +14,6 @@ public class SachKhac extends Sach {
         this.theloai = theloai;
     }
 
-    public SachKhac(SachKhac s){
-        super(s);
-        this.theloai = s.theloai;
-    }
-
     public void setTheloai(String theloai) {
         this.theloai = theloai;
     }
