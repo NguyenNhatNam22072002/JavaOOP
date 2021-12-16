@@ -86,10 +86,12 @@ public class ThuVien {
                 case "7":   //In danh sach người mượn quá thời hạn
                     TheThuVien.ThongTinNguoiMuonQuaHan(ds, thuvien);
                     break;
-                default:
-                    System.out.println("\t\tTam biet!!!!!");
+                case "8":
+                    System.out.print("\t\tTam biet!!!!! ");
                     wait(1000);
-                break;                
+                    break;
+                default:
+                    break;
             }
         } while (!chon.equals("8"));
         sc.close();
