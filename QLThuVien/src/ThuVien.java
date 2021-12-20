@@ -18,8 +18,8 @@ public class ThuVien {
         listNV.add(Hai);
         listNV.add(Nguyen);
         //Khởi tạo 3 sách trong thư viện 
-        SachGiaoKhoa sachToan = new SachGiaoKhoa("sgktoan1", "ToanCaoCap", "Kim Dong", 1, 13);
-        SachKhac Conan = new SachKhac("conan1", "Conan", "Kim Dong", 1, "Tieu thuyet");
+        SachGiaoKhoa sachToan = new SachGiaoKhoa("sgktoan1", "Toan Cao Cap", "Kim Dong", 1, 13);
+        SachKhac Conan = new SachKhac("conan1", "Conan tap 1", "Kim Dong", 1, "Tieu thuyet");
         SachThamKhao thamkhao = new SachThamKhao("tkvan1", "Sach Giai Van 12", "Kim Dong", 2, "Van");
         //Tạo danh sách SGK, Sách tham khảo, Sách khác
         ArrayList<SachGiaoKhoa> listsachgiaokhoa = new ArrayList<SachGiaoKhoa>();

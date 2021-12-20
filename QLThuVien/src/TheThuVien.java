@@ -158,7 +158,7 @@ public class TheThuVien {
                             String masach = sc.next();
                             ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1)
                                     .setMaSach(masach); //set mã sách vừa nhập lại
-                            i -= 1; //duyệt lại từ đầu
+                            i =- 1; //duyệt lại từ đầu
                             continue;
                         }
                     }
@@ -179,7 +179,7 @@ public class TheThuVien {
                             String masach = sc.next();
                             ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1)
                                     .setMaSach(masach);  //set mã sách vừa nhập lại
-                            i -= 1; //duyệt lại từ đầu
+                            i =- 1; //duyệt lại từ đầu
                             continue;
                         }
                     }
@@ -200,7 +200,7 @@ public class TheThuVien {
                             String masach = sc.next();
                             ds.get(vitri)._thuvien.get(ds.get(vitri).sosachdamuon - i - 1)
                                     .setMaSach(masach);  //set mã sách vừa nhập lại
-                            i -= 1; //duyệt lại từ đầu
+                            i =- 1; //duyệt lại từ đầu
                             continue;
                         }
                     }
