@@ -665,6 +665,8 @@ public class ThuVien {
                 case "8":
                     System.out.print("\t\tTam biet!!!!! ");
                     wait(1000);
+                    System.out.print("\033[H\033[2J\n");
+                    System.out.flush();
                     break;
                 default:
                     break;
